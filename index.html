@@ -6,7 +6,7 @@
   <title>AYUVA Longevity Institute | Longevity Medicine in New Delhi</title>
   <meta name="description" content="Physician-governed longevity, regenerative and precision medicine in New Delhi. 30 key measures, a personal Healthspan Blueprint and a 90-day retest.">
   <link rel="canonical" href="https://www.theayuva.com/">
-  <meta name="theme-color" content="#082419">
+  <meta name="theme-color" content="#04110C">
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="AYUVA Longevity Institute">
@@ -21,10 +21,14 @@
   <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 
-  <link rel="preload" href="assets/fonts/lora-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/fonts/lora-latin-wght-italic.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" as="image" href="assets/img/photo/himalaya-sunrise-1400.webp" imagesrcset="assets/img/photo/himalaya-sunrise-800.webp 800w, assets/img/photo/himalaya-sunrise-1400.webp 1400w, assets/img/photo/himalaya-sunrise-2400.webp 2400w" imagesizes="(min-width: 960px) 42vw, 100vw">
+  <link rel="preload" href="assets/fonts/stack-sans-headline-wght.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/instrument-sans-wght.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/instrument-serif-400-italic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" as="image" href="assets/img/photo/himalaya-sunrise-1400.webp" imagesrcset="assets/img/photo/himalaya-sunrise-800.webp 800w, assets/img/photo/himalaya-sunrise-1400.webp 1400w, assets/img/photo/himalaya-sunrise-2400.webp 2400w" imagesizes="100vw">
+
+  <link rel="stylesheet" href="assets/vendor/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/vendor/bootstrap-icons/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="assets/vendor/swiper-bundle.min.css">
   <link rel="stylesheet" href="assets/css/style.css">
 
   <script type="application/ld+json">
@@ -40,7 +44,6 @@
     "email": "wellness@theayuva.com",
     "address": { "@type": "PostalAddress", "addressLocality": "New Delhi", "addressCountry": "IN" },
     "founder": { "@type": "Person", "name": "Prabhu Chandra Mishra", "jobTitle": "Founder & CEO" },
-    "medicalSpecialty": ["PreventiveMedicine"],
     "sameAs": ["https://www.instagram.com/ayuvainstitute"]
   }
   </script>
@@ -49,735 +52,753 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- Intro veil: shown once per session -->
-  <div class="veil" aria-hidden="true">
-    <img class="veil__icon" src="assets/img/logo/ayuva-icon-gold.png" alt="" width="96" height="96">
-    <span class="veil__line"></span>
+  <!-- ================= PRELOADER ================= -->
+  <div class="loader" data-loader aria-hidden="true">
+    <div class="loader__inner">
+      <img class="loader__icon" src="assets/img/logo/ayuva-icon-gold.png" alt="" width="72" height="72">
+      <div class="loader__count"><span data-loader-count>0</span><sup>%</sup></div>
+      <div class="loader__bar"><i data-loader-bar></i></div>
+      <p class="loader__tag">Live longer. <em>Live younger.</em></p>
+    </div>
   </div>
 
-  <!-- ============ HEADER ============ -->
-  <header class="site-header" data-header>
-    <div class="site-header__inner">
+  <!-- Custom cursor (fine pointers only) -->
+  <div class="cursor" data-cursor aria-hidden="true"><span class="cursor__label" data-cursor-label></span></div>
+  <div class="cursor-dot" data-cursor-dot aria-hidden="true"></div>
+
+  <!-- ================= NAV ================= -->
+  <header class="nav" data-nav>
+    <div class="nav__bar">
       <a class="brand" href="/" aria-label="AYUVA Longevity Institute — home">
-        <img class="brand__icon" src="assets/img/logo/ayuva-icon-gold.png" alt="" width="44" height="44">
+        <img class="brand__icon" src="assets/img/logo/ayuva-icon-gold.png" alt="" width="40" height="40">
         <span class="brand__type">
-          <img class="brand__word" src="assets/img/logo/ayuva-wordmark-gold.png" alt="AYUVA" width="120" height="20">
-          <img class="brand__tag" src="assets/img/logo/ayuva-tagline-ivory.png" alt="Longevity Institute" width="120" height="6">
+          <img class="brand__word" src="assets/img/logo/ayuva-wordmark-gold.png" alt="AYUVA" width="104" height="17">
+          <img class="brand__tag" src="assets/img/logo/ayuva-tagline-ivory.png" alt="Longevity Institute" width="104" height="5">
         </span>
       </a>
 
-      <nav class="nav" aria-label="Main">
-        <ul class="nav__list">
-          <li><a class="nav__link" href="/about">About</a></li>
-          <li><a class="nav__link" href="/the-ayuva-model">The AYUVA Model</a></li>
-          <li><a class="nav__link" href="/key-longevity-panel">Key Longevity Panel</a></li>
-          <li class="nav__item--drop">
-            <button class="nav__link nav__drop-toggle" aria-expanded="false" aria-controls="drop-programmes">
-              Programmes <svg width="10" height="6" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>
-            </button>
-            <div class="drop" id="drop-programmes">
-              <ul>
-                <li><a href="/programmes/ceo-cellular-week"><span>CEO Cellular Week</span><small>Founders, CEOs &amp; high performers</small></a></li>
-                <li><a href="/programmes/meridian"><span>AYUVA Meridian</span><small>Women in high-performance roles</small></a></li>
-                <li><a href="/programmes/sushupti"><span>SUSHUPTI</span><small>The Sleep Reset Programme</small></a></li>
-                <li><a href="/programmes/ojas"><span>OJAS</span><small>Sexual &amp; Intimate Health Intensive</small></a></li>
-                <li><a href="/programmes/sovereign"><span>AYUVA Sovereign</span><small>Annual membership · by invitation</small></a></li>
-                <li><a href="/programmes#coming-soon"><span>Coming soon</span><small>GENZIVITY · AYUVA 21 · SANJEEVANI · PARIVAR · Boardroom</small></a></li>
-              </ul>
-              <a class="drop__all" href="/programmes">All programmes <span aria-hidden="true">→</span></a>
+      <nav class="nav__links d-none d-xl-flex" aria-label="Main">
+        <a href="/about">About</a>
+        <a href="/the-ayuva-model">The AYUVA Model</a>
+        <a href="/key-longevity-panel">Key Longevity Panel</a>
+        <div class="mega-wrap" data-mega>
+          <button class="mega-toggle" aria-expanded="false" aria-controls="mega">Programmes <i class="bi bi-chevron-down"></i></button>
+          <div class="mega" id="mega">
+            <div class="mega__grid">
+              <a class="mega__card" href="/programmes/ceo-cellular-week"><span class="mega__k">01</span><b>CEO Cellular Week</b><small>Founders, CEOs &amp; high performers</small></a>
+              <a class="mega__card" href="/programmes/meridian"><span class="mega__k">02</span><b>AYUVA Meridian</b><small>Women in high-performance roles</small></a>
+              <a class="mega__card" href="/programmes/sushupti"><span class="mega__k">03</span><b>SUSHUPTI</b><small>The Sleep Reset Programme</small></a>
+              <a class="mega__card" href="/programmes/ojas"><span class="mega__k">04</span><b>OJAS</b><small>Sexual &amp; Intimate Health Intensive</small></a>
+              <a class="mega__card" href="/programmes/sovereign"><span class="mega__k">05</span><b>AYUVA Sovereign</b><small>Annual membership · by invitation</small></a>
+              <a class="mega__card mega__card--soon" href="/programmes#coming-soon"><span class="mega__k">Soon</span><b>Coming soon</b><small>GENZIVITY · AYUVA 21 · SANJEEVANI · PARIVAR · Boardroom</small></a>
             </div>
-          </li>
-          <li><a class="nav__link" href="/therapies">Therapies</a></li>
-          <li><a class="nav__link" href="/safety">Safety</a></li>
-          <li><a class="nav__link" href="/team">Team</a></li>
-          <li><a class="nav__link" href="/academy">Academy</a></li>
-          <li><a class="nav__link" href="/faq">FAQ</a></li>
-        </ul>
+            <a class="mega__all" href="/programmes">View all programmes <i class="bi bi-arrow-up-right"></i></a>
+          </div>
+        </div>
+        <a href="/therapies">Therapies</a>
+        <a href="/safety">Safety</a>
+        <a href="/team">Team</a>
+        <a href="/academy">Academy</a>
+        <a href="/faq">FAQ</a>
       </nav>
 
-      <a class="btn btn--gold btn--sm header-cta" href="/book">Book your Key Panel</a>
-
-      <button class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu" data-burger>
-        <span></span><span></span>
-      </button>
+      <a class="btn-x btn-gold btn-sm-x nav__cta d-none d-sm-inline-flex" href="/book" data-magnetic>Book your Key Panel <span class="ico"><i class="bi bi-arrow-up-right"></i></span></a>
+      <button class="burger d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-controls="mobileMenu" aria-label="Open menu"><span></span><span></span></button>
     </div>
   </header>
 
-  <!-- Mobile / tablet menu -->
-  <div class="menu" id="menu" data-menu hidden>
-    <div class="menu__rings" aria-hidden="true"></div>
-    <nav class="menu__nav" aria-label="Mobile">
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/the-ayuva-model">The AYUVA Model</a></li>
-        <li><a href="/key-longevity-panel">Key Longevity Panel</a></li>
-        <li><a href="/programmes">Programmes</a>
-          <ul class="menu__sub">
-            <li><a href="/programmes/ceo-cellular-week">CEO Cellular Week</a></li>
-            <li><a href="/programmes/meridian">AYUVA Meridian</a></li>
-            <li><a href="/programmes/sushupti">SUSHUPTI</a></li>
-            <li><a href="/programmes/ojas">OJAS</a></li>
-            <li><a href="/programmes/sovereign">AYUVA Sovereign</a></li>
-            <li><a href="/programmes#coming-soon">Coming soon</a></li>
-          </ul>
-        </li>
-        <li><a href="/therapies">Therapies</a></li>
-        <li><a href="/safety">Safety</a></li>
-        <li><a href="/team">Team</a></li>
-        <li><a href="/academy">Academy</a></li>
-        <li><a href="/faq">FAQ</a></li>
-      </ul>
+  <!-- Mobile menu -->
+  <div class="offcanvas offcanvas-end mm" tabindex="-1" id="mobileMenu" aria-label="Menu">
+    <div class="mm__aurora" aria-hidden="true"></div>
+    <div class="mm__head">
+      <img src="assets/img/logo/ayuva-icon-gold.png" alt="" width="40" height="40">
+      <button type="button" class="mm__close" data-bs-dismiss="offcanvas" aria-label="Close menu"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <nav class="mm__nav" aria-label="Mobile">
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/the-ayuva-model">The AYUVA Model</a>
+      <a href="/key-longevity-panel">Key Longevity Panel</a>
+      <a href="/programmes">Programmes</a>
+      <div class="mm__chips">
+        <a href="/programmes/ceo-cellular-week">CEO Cellular Week</a><a href="/programmes/meridian">AYUVA Meridian</a><a href="/programmes/sushupti">SUSHUPTI</a><a href="/programmes/ojas">OJAS</a><a href="/programmes/sovereign">AYUVA Sovereign</a><a href="/programmes#coming-soon">Coming soon</a>
+      </div>
+      <a href="/therapies">Therapies</a>
+      <a href="/safety">Safety</a>
+      <a href="/team">Team</a>
+      <a href="/academy">Academy</a>
+      <a href="/faq">FAQ</a>
     </nav>
-    <div class="menu__foot">
-      <a class="btn btn--gold" href="/book">Book your Key Panel</a>
-      <a class="menu__tel" href="tel:+919643696969">+91 96436 96969</a>
+    <div class="mm__foot">
+      <a class="btn-x btn-gold" href="/book">Book your Key Panel <span class="ico"><i class="bi bi-arrow-up-right"></i></span></a>
+      <a class="mm__tel" href="tel:+919643696969"><i class="bi bi-telephone"></i> +91 96436 96969</a>
     </div>
   </div>
 
   <main id="main">
 
-    <!-- ============ HERO ============ -->
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="rings rings--hero" aria-hidden="true">
-        <span></span><span></span><span></span>
-        <i class="rings__orbit"><b></b></i>
-      </div>
+    <!-- ================= HERO — the aperture ================= -->
+    <section class="hero" data-hero aria-labelledby="hero-title">
+      <div class="hero__stage" data-stage>
+        <div class="aurora" aria-hidden="true"><i class="a1"></i><i class="a2"></i><i class="a3"></i></div>
 
-      <div class="container hero__grid">
-        <div class="hero__copy">
-          <p class="eyebrow eyebrow--rule" data-reveal>Regenerative Intelligence · New Delhi</p>
-          <h1 class="display" id="hero-title">
-            <span class="line"><span>Live longer.</span></span>
-            <span class="line"><em>Live younger.</em></span>
-          </h1>
-          <p class="hero__lede" data-reveal style="--d:.15s">AYUVA Longevity Institute is a physician-governed centre for longevity, regenerative, functional and precision medicine in New Delhi — diagnostics first, science led, rooted in Bharatiya wisdom.</p>
-          <div class="btn-row" data-reveal style="--d:.3s">
-            <a class="btn btn--gold" href="/book">Book your Key Longevity Panel</a>
-            <a class="btn btn--ghost" href="/programmes">Find your programme</a>
-          </div>
+        <div class="hero__media" data-hero-media>
+          <picture>
+            <source type="image/webp" srcset="assets/img/photo/himalaya-sunrise-800.webp 800w, assets/img/photo/himalaya-sunrise-1400.webp 1400w, assets/img/photo/himalaya-sunrise-2400.webp 2400w" sizes="100vw">
+            <img src="assets/img/photo/himalaya-sunrise-1400.jpg" alt="First light rising over misty Himalayan valleys" width="1400" height="1050" fetchpriority="high">
+          </picture>
+          <div class="hero__shade"></div>
         </div>
 
-        <figure class="hero__media">
-          <div class="arch">
-            <picture>
-              <source type="image/webp" srcset="assets/img/photo/himalaya-sunrise-800.webp 800w, assets/img/photo/himalaya-sunrise-1400.webp 1400w, assets/img/photo/himalaya-sunrise-2400.webp 2400w" sizes="(min-width: 960px) 42vw, 100vw">
-              <img src="assets/img/photo/himalaya-sunrise-1400.jpg" alt="First light rising over misty Himalayan valleys" width="1400" height="1050" fetchpriority="high" data-parallax="0.06">
-            </picture>
-          </div>
-          <img class="hero__seal" src="assets/img/logo/ayuva-icon-gold.png" alt="" width="88" height="88" aria-hidden="true">
-        </figure>
-      </div>
+        <svg class="dial" data-dial viewBox="0 0 400 400" aria-hidden="true">
+          <circle class="dial__ring" cx="200" cy="200" r="196"/>
+          <g data-dial-ticks></g>
+          <g class="dial__spin"><circle class="dial__dot" cx="200" cy="4" r="4"/></g>
+        </svg>
 
-      <a class="scroll-cue" href="#trust" aria-label="Scroll to content"><span>Scroll</span><i></i></a>
-    </section>
+        <canvas class="hero__particles" data-particles aria-hidden="true"></canvas>
 
-    <!-- ============ TRUST STRIP ============ -->
-    <section class="trust" id="trust" aria-label="Why AYUVA">
-      <ul class="container trust__list">
-        <li data-reveal><span class="trust__k">Physician-governed</span></li>
-        <li data-reveal style="--d:.08s"><span class="trust__k">30 key measures</span></li>
-        <li data-reveal style="--d:.16s"><span class="trust__k">90-day retest</span></li>
-        <li data-reveal style="--d:.24s"><span class="trust__k trust__k--long">Born from IASRM’s Longevity &amp; Regenerative Medicine conferences, running since 2014</span></li>
-      </ul>
-    </section>
-
-    <!-- ============ FIVE PROMISES ============ -->
-    <section class="section section--ivory promises" aria-labelledby="promises-title">
-      <div class="container">
-        <header class="section-head section-head--split">
-          <div>
-            <p class="eyebrow" data-reveal><span class="eyebrow__n">01</span>Five promises</p>
-            <h2 class="h2" id="promises-title" data-reveal style="--d:.08s">One institute. <em>Five promises.</em></h2>
-          </div>
-          <div class="tattva-dots" aria-hidden="true" data-reveal style="--d:.16s"><i></i><i></i><i></i><i></i><i></i></div>
-        </header>
-
-        <ol class="promise-grid">
-          <li class="promise" data-reveal>
-            <span class="promise__n">01</span>
-            <h3 class="promise__t">Predict</h3>
-            <p>Read the signals of ageing years before symptoms.</p>
-          </li>
-          <li class="promise" data-reveal style="--d:.08s">
-            <span class="promise__n">02</span>
-            <h3 class="promise__t">Prevent</h3>
-            <p>Correct metabolic and inflammatory drift early.</p>
-          </li>
-          <li class="promise" data-reveal style="--d:.16s">
-            <span class="promise__n">03</span>
-            <h3 class="promise__t">Personalize</h3>
-            <p>One Healthspan Blueprint, written for one person.</p>
-          </li>
-          <li class="promise" data-reveal style="--d:.24s">
-            <span class="promise__n">04</span>
-            <h3 class="promise__t">Preserve</h3>
-            <p>Protect muscle, bone, brain and hormones for decades.</p>
-          </li>
-          <li class="promise" data-reveal style="--d:.32s">
-            <span class="promise__n">05</span>
-            <h3 class="promise__t">Perform</h3>
-            <p>Energy, focus and sleep for the life you lead now.</p>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- ============ PROVERB ============ -->
-    <section class="section section--paper proverb" aria-label="Indian proverb">
-      <div class="rings rings--soft" aria-hidden="true"><span></span><span></span></div>
-      <div class="container container--narrow proverb__inner">
-        <img class="proverb__icon" src="assets/img/logo/ayuva-icon-gold.png" alt="" width="56" height="56" data-reveal>
-        <blockquote class="proverb__quote" data-reveal style="--d:.1s">
-          <p>“A healthy person has a thousand wishes, but a sick person has only one.”</p>
-          <footer>— Indian proverb</footer>
-        </blockquote>
-        <p class="proverb__body" data-reveal style="--d:.2s">True healthcare begins long before disease appears. We help you measure, repair and future-proof your biology — so the thousand wishes stay yours.</p>
-      </div>
-    </section>
-
-    <!-- ============ THE NEW STANDARD ============ -->
-    <section class="section section--green standard" aria-labelledby="standard-title">
-      <div class="rings rings--right" aria-hidden="true"><span></span><span></span><span></span></div>
-      <div class="container">
-        <header class="section-head section-head--split section-head--wide">
-          <div>
-            <p class="eyebrow" data-reveal><span class="eyebrow__n">02</span>The new standard</p>
-            <h2 class="h2" id="standard-title" data-reveal style="--d:.08s">We stopped counting markers. <em>We started choosing them.</em></h2>
-          </div>
-          <div class="section-head__aside" data-reveal style="--d:.16s">
-            <p>A 183-marker report creates noise, cost and anxiety. The AYUVA Key Longevity Panel measures the signals that best predict how you will age — and every one of them changes a decision.</p>
-          </div>
-        </header>
-
-        <dl class="stats">
-          <div class="stat" data-reveal>
-            <dt class="stat__n" data-count="30">30</dt>
-            <dd>key measures — 22 blood &amp; urine, 8 functional</dd>
-          </div>
-          <div class="stat" data-reveal style="--d:.1s">
-            <dt class="stat__n" data-count="8">8</dt>
-            <dd>longevity domains, each with a clear action</dd>
-          </div>
-          <div class="stat" data-reveal style="--d:.2s">
-            <dt class="stat__n" data-count="90">90</dt>
-            <dd>days to retest — change is measured, not assumed</dd>
-          </div>
-        </dl>
-
-        <div class="domains">
-          <div class="domains__head">
-            <p class="eyebrow" data-reveal>The AYUVA Key Longevity Panel</p>
-            <h3 class="h3" data-reveal style="--d:.08s">Thirty measures. Eight domains. <em>One visit.</em></h3>
-            <p data-reveal style="--d:.16s">Every AYUVA journey begins here. We measure the signals that best predict how you will age — and every one changes a decision.</p>
-            <p class="domains__note" data-reveal style="--d:.2s">22 blood and urine markers in one draw · 8 functional measures in clinic</p>
-            <a class="btn btn--gold" href="/key-longevity-panel" data-reveal style="--d:.24s">See all 30 measures</a>
-          </div>
-
-          <ol class="domains__list">
-            <li data-reveal><span class="domains__n">01</span><h4 class="domains__name">Metabolic</h4><ul class="pills"><li>HbA1c</li><li>Fasting glucose</li><li>Fasting insulin (HOMA-IR)</li></ul><span class="domains__type">Blood</span></li>
-            <li data-reveal><span class="domains__n">02</span><h4 class="domains__name">Heart &amp; vessels</h4><ul class="pills"><li>Lipid profile</li><li>ApoB</li><li>Lp(a)</li></ul><span class="domains__type">Blood</span></li>
-            <li data-reveal><span class="domains__n">03</span><h4 class="domains__name">Inflammation</h4><ul class="pills"><li>hsCRP</li><li>Homocysteine</li><li>CBC with NLR</li></ul><span class="domains__type">Blood</span></li>
-            <li data-reveal><span class="domains__n">04</span><h4 class="domains__name">Liver &amp; kidney</h4><ul class="pills"><li>ALT</li><li>GGT</li><li>Cystatin C (eGFR)</li><li>Urine ACR</li><li>Uric acid</li></ul><span class="domains__type">Blood &amp; urine</span></li>
-            <li data-reveal><span class="domains__n">05</span><h4 class="domains__name">Hormones</h4><ul class="pills"><li>TSH</li><li>AM cortisol</li><li>DHEA-S</li><li>Sex-hormone profile (men / women)</li></ul><span class="domains__type">Blood</span></li>
-            <li data-reveal><span class="domains__n">06</span><h4 class="domains__name">Nutrients</h4><ul class="pills"><li>Vitamin D</li><li>Vitamin B12</li><li>Ferritin</li><li>Omega-3 index</li></ul><span class="domains__type">Blood</span></li>
-            <li data-reveal><span class="domains__n">07</span><h4 class="domains__name">Body &amp; strength</h4><ul class="pills"><li>DEXA (muscle, visceral fat, bone)</li><li>Grip strength</li><li>Sit-to-stand</li><li>BP &amp; arterial stiffness</li></ul><span class="domains__type">In clinic</span></li>
-            <li data-reveal><span class="domains__n">08</span><h4 class="domains__name">Fitness &amp; mind</h4><ul class="pills"><li>VO2 max</li><li>HRV</li><li>Sleep score</li><li>Cognitive screen</li></ul><span class="domains__type">In clinic</span></li>
-          </ol>
+        <div class="hero__top wrap" data-hero-fade>
+          <span class="pill"><span class="pill__dot"></span>Regenerative Intelligence · New Delhi</span>
+          <span class="hero__coords d-none d-md-inline">28.61° N &nbsp;·&nbsp; 77.21° E</span>
         </div>
-      </div>
-    </section>
 
-    <!-- ============ HOW IT WORKS ============ -->
-    <section class="section section--ivory how" aria-labelledby="how-title">
-      <div class="container">
-        <header class="section-head section-head--center">
-          <p class="eyebrow" data-reveal><span class="eyebrow__n">03</span>How it works</p>
-          <h2 class="h2" id="how-title" data-reveal style="--d:.08s">Measure. Mentor. <em>Monitor.</em></h2>
-        </header>
+        <h1 class="hero__title" id="hero-title">
+          <span class="hero__l hero__l--1"><span class="line"><span>Live longer.</span></span></span>
+          <span class="hero__l hero__l--2"><span class="line"><span class="serif grad-gold">Live younger.</span></span></span>
+        </h1>
 
-        <ol class="steps" data-steps>
-          <li class="step" data-reveal>
-            <span class="step__node" aria-hidden="true"></span>
-            <span class="step__n">01</span>
-            <h3 class="step__t">Measure</h3>
-            <p>The Key Longevity Panel and AYUVA 360 assessment: blood, body, fitness, sleep and mind in one visit.</p>
-          </li>
-          <li class="step" data-reveal style="--d:.15s">
-            <span class="step__node" aria-hidden="true"></span>
-            <span class="step__n">02</span>
-            <h3 class="step__t">Mentor</h3>
-            <p>A physician turns your results into your Healthspan Blueprint and matches you to the right programme.</p>
-          </li>
-          <li class="step" data-reveal style="--d:.3s">
-            <span class="step__node" aria-hidden="true"></span>
-            <span class="step__n">03</span>
-            <h3 class="step__t">Monitor</h3>
-            <p>Retest at 90 days, compare against your own baseline and adjust — progress proven, not promised.</p>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- ============ PROGRAMMES ============ -->
-    <section class="section section--deep programmes" aria-labelledby="prog-title">
-      <div class="container">
-        <header class="section-head section-head--split">
-          <div>
-            <p class="eyebrow" data-reveal><span class="eyebrow__n">04</span>Programmes</p>
-            <h2 class="h2" id="prog-title" data-reveal style="--d:.08s">Begin where you are.</h2>
-          </div>
-          <div class="section-head__aside" data-reveal style="--d:.16s">
-            <p>Six signature pathways, one standard of care.</p>
-            <a class="btn btn--ghost" href="/programmes">Explore programmes</a>
-          </div>
-        </header>
-
-        <ul class="prog-grid">
-          <li data-reveal>
-            <a class="prog" href="/programmes/ceo-cellular-week" style="--tone:#154A3A">
-              <img class="prog__icon" src="assets/img/logo/ayuva-icon-gold.png" alt="" width="40" height="40">
-              <h3 class="prog__name">CEO Cellular Week</h3>
-              <p class="prog__desc">For founders, CEOs and high performers · 1, 3 or 5 days</p>
-              <span class="prog__by">by AYUVA</span>
-              <span class="prog__go" aria-hidden="true">→</span>
-            </a>
-          </li>
-          <li data-reveal style="--d:.08s">
-            <a class="prog" href="/programmes/meridian" style="--tone:#0E3B2E">
-              <img class="prog__icon" src="assets/img/logo/ayuva-icon-gold.png" alt="" width="40" height="40">
-              <h3 class="prog__name">AYUVA Meridian</h3>
-              <p class="prog__desc">For women in high-performance roles · 1, 3 or 5 days</p>
-              <span class="prog__by">by AYUVA</span>
-              <span class="prog__go" aria-hidden="true">→</span>
-            </a>
-          </li>
-          <li data-reveal style="--d:.16s">
-            <a class="prog" href="/programmes/sushupti" style="--tone:#101A1E">
-              <img class="prog__icon" src="assets/img/logo/ayuva-icon-gold.png" alt="" width="40" height="40">
-              <h3 class="prog__name">SUSHUPTI</h3>
-              <p class="prog__desc">The Sleep Reset Programme · day or overnight</p>
-              <span class="prog__by">by AYUVA</span>
-              <span class="prog__go" aria-hidden="true">→</span>
-            </a>
-          </li>
-          <li data-reveal>
-            <a class="prog" href="/programmes/ojas" style="--tone:#5A1F2B">
-              <img class="prog__icon" src="assets/img/logo/ayuva-icon-gold.png" alt="" width="40" height="40">
-              <h3 class="prog__name">OJAS</h3>
-              <p class="prog__desc">The Sexual &amp; Intimate Health Intensive · 3 days</p>
-              <span class="prog__by">by AYUVA</span>
-              <span class="prog__go" aria-hidden="true">→</span>
-            </a>
-          </li>
-          <li data-reveal style="--d:.08s">
-            <a class="prog" href="/programmes/sovereign" style="--tone:#04170F">
-              <img class="prog__icon" src="assets/img/logo/ayuva-icon-gold.png" alt="" width="40" height="40">
-              <h3 class="prog__name">AYUVA Sovereign</h3>
-              <p class="prog__desc">Annual membership · by invitation</p>
-              <span class="prog__by">by AYUVA</span>
-              <span class="prog__go" aria-hidden="true">→</span>
-            </a>
-          </li>
-          <li data-reveal style="--d:.16s">
-            <a class="prog" href="/academy" style="--tone:#1C3A30">
-              <img class="prog__icon" src="assets/img/logo/ayuva-icon-gold.png" alt="" width="40" height="40">
-              <h3 class="prog__name">Academy</h3>
-              <p class="prog__desc">For clinicians · 1-year fellowship</p>
-              <span class="prog__by">by AYUVA</span>
-              <span class="prog__go" aria-hidden="true">→</span>
-            </a>
-          </li>
-        </ul>
-
-        <div class="soon" id="coming-soon">
-          <div class="soon__intro">
-            <p class="eyebrow" data-reveal>Coming soon</p>
-            <h3 class="h3" data-reveal style="--d:.08s">Longevity for every stage of life.</h3>
-            <p data-reveal style="--d:.16s">Five new AYUVA signatures are in their founding-cohort stage. Join the waitlist to be first to hear when public dates open.</p>
-            <a class="link-arrow" href="/book" data-reveal style="--d:.24s">Join the waitlist <span aria-hidden="true">→</span></a>
-          </div>
-          <ul class="soon__list">
-            <li data-reveal><span class="soon__name">GENZIVITY</span><span class="soon__desc">Longevity, started early · ages 18–28</span></li>
-            <li data-reveal style="--d:.06s"><span class="soon__name">AYUVA 21</span><span class="soon__desc">The Metabolic Reset · 21 days, hybrid</span></li>
-            <li data-reveal style="--d:.12s"><span class="soon__name">SANJEEVANI</span><span class="soon__desc">Healthy ageing, 60+</span></li>
-            <li data-reveal style="--d:.18s"><span class="soon__name">PARIVAR</span><span class="soon__desc">The Family Longevity Day</span></li>
-            <li data-reveal style="--d:.24s"><span class="soon__name">AYUVA Boardroom</span><span class="soon__desc">Corporate longevity</span></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ REGENERATIVE STACK ============ -->
-    <section class="section section--ivory stack" aria-labelledby="stack-title">
-      <div class="container">
-        <header class="section-head section-head--split">
-          <div>
-            <p class="eyebrow" data-reveal><span class="eyebrow__n">05</span>Across every programme</p>
-            <h2 class="h2" id="stack-title" data-reveal style="--d:.08s">The AYUVA <em>regenerative stack.</em></h2>
-          </div>
-          <div class="section-head__aside" data-reveal style="--d:.16s">
-            <p>Therapies at AYUVA are tools, not packages. Each is chosen from your Healthspan Blueprint, cleared by a physician and re-measured. If a therapy will not move one of your numbers, we will not recommend it.</p>
-            <div class="rail-ctrl">
-              <button class="rail-btn" data-rail-prev aria-label="Previous therapies"><span aria-hidden="true">←</span></button>
-              <button class="rail-btn" data-rail-next aria-label="Next therapies"><span aria-hidden="true">→</span></button>
+        <div class="hero__bottom wrap">
+          <div class="hero__intro" data-hero-fade>
+            <p class="hero__sub">A physician-governed centre for longevity, regenerative, functional and precision medicine in New Delhi — <strong>diagnostics first, science led, rooted in Bharatiya wisdom.</strong></p>
+            <div class="hero__actions">
+              <a class="btn-x btn-gold" href="/book" data-magnetic>Book your Key Longevity Panel <span class="ico"><i class="bi bi-arrow-up-right"></i></span></a>
+              <a class="btn-x btn-glass" href="/programmes" data-magnetic>Find your programme <span class="ico"><i class="bi bi-grid-1x2"></i></span></a>
             </div>
           </div>
-        </header>
-      </div>
-
-      <div class="rail" data-rail tabindex="0" aria-label="Therapies">
-        <ol class="rail__track">
-          <li class="therapy"><span class="therapy__n">01</span><h3 class="therapy__t">NAD+ &amp; IV</h3><p>Physician-dosed intravenous nutrients, given with blood-pressure monitoring.</p><p class="therapy__gate">Chosen when your Blueprint shows a nutrient or energy need.</p></li>
-          <li class="therapy"><span class="therapy__n">02</span><h3 class="therapy__t">Hyperbaric oxygen</h3><p>Breathing oxygen in a pressurised chamber at 1.5–2.0 ATA.</p><p class="therapy__gate">ENT clearance first; not for untreated pneumothorax.</p></li>
-          <li class="therapy"><span class="therapy__n">03</span><h3 class="therapy__t">Thermal contrast</h3><p>Infrared sauna followed by cold plunge, in measured cycles.</p><p class="therapy__gate">BP and heart screening first; observation after every session.</p></li>
-          <li class="therapy"><span class="therapy__n">04</span><h3 class="therapy__t">Regenerative consult</h3><p>PRP and peptide options discussed only when an indication exists.</p><p class="therapy__gate">Investigational uses are explained as investigational.</p></li>
-          <li class="therapy"><span class="therapy__n">05</span><h3 class="therapy__t">AYUVA Sculpt</h3><p>EMS, HIFEM and radiofrequency for muscle tone and pelvic-floor strength.</p><p class="therapy__gate">Matched to body-composition and strength results.</p></li>
-          <li class="therapy"><span class="therapy__n">06</span><h3 class="therapy__t">Neuro &amp; HRV</h3><p>Heart-rate-variability biofeedback, red-light sessions and cognitive training.</p><p class="therapy__gate">Guided by your HRV, sleep and cognitive scores.</p></li>
-          <li class="therapy"><span class="therapy__n">07</span><h3 class="therapy__t">Yoga &amp; breath</h3><p>Pranayama, meditation, Yoga Nidra and Dinacharya, taught one-to-one or in groups.</p><p class="therapy__gate">Part of every programme.</p></li>
-          <li class="therapy"><span class="therapy__n">08</span><h3 class="therapy__t">BioReboot nutrition</h3><p>Anti-inflammatory, low-glycaemic menus planned from your metabolic results.</p><p class="therapy__gate">Served in residential programmes; a home plan for everyone.</p></li>
-        </ol>
-      </div>
-
-      <div class="container rail-foot">
-        <div class="rail-progress" aria-hidden="true"><i data-rail-bar></i></div>
-        <a class="link-arrow link-arrow--dark" href="/therapies">Explore therapies <span aria-hidden="true">→</span></a>
-      </div>
-    </section>
-
-    <!-- ============ SAFETY ============ -->
-    <section class="section section--green safety" aria-labelledby="safety-title">
-      <div class="rings rings--left" aria-hidden="true"><span></span><span></span></div>
-      <div class="container">
-        <header class="section-head section-head--split section-head--wide">
-          <div>
-            <p class="eyebrow" data-reveal><span class="eyebrow__n">06</span>Safety &amp; governance</p>
-            <h2 class="h2" id="safety-title" data-reveal style="--d:.08s">Every therapy is gated <em>by a physician.</em></h2>
-          </div>
-          <div class="section-head__aside" data-reveal style="--d:.16s">
-            <p>Powerful tools need careful gates. Before any therapy, a physician reviews your history, your results and the checks below. If a check is not met, the therapy waits.</p>
-          </div>
-        </header>
-
-        <div class="gates">
-          <article class="gate" data-reveal>
-            <h3 class="gate__t">Before HBOT</h3>
-            <ul class="checks"><li>ENT clearance</li><li>No untreated pneumothorax</li><li>Blood sugar check if diabetic</li></ul>
-          </article>
-          <article class="gate" data-reveal style="--d:.1s">
-            <h3 class="gate__t">Before sauna</h3>
-            <ul class="checks"><li>Blood pressure below 150/90</li><li>No dehydration</li><li>Electrolytes normal</li></ul>
-          </article>
-          <article class="gate" data-reveal style="--d:.2s">
-            <h3 class="gate__t">Before cold plunge</h3>
-            <ul class="checks"><li>No unstable angina</li><li>No severe Raynaud’s</li><li>10-minute observation after</li></ul>
-          </article>
-        </div>
-
-        <dl class="assure">
-          <div data-reveal><dt>Before you arrive</dt><dd>A health questionnaire and consent are completed 24–48 hours before your visit.</dd></div>
-          <div data-reveal style="--d:.1s"><dt>Pre-existing conditions</dt><dd>Anyone with an existing medical condition receives an opinion from a partner hospital before therapies begin.</dd></div>
-          <div data-reveal style="--d:.2s"><dt>Your records</dt><dd>Records are confidential and handled under ethics- and privacy-guided data practices. Your data stays yours; we never sell or share it for marketing.</dd></div>
-        </dl>
-      </div>
-    </section>
-
-    <!-- ============ PHILOSOPHY ============ -->
-    <section class="section section--ivory philosophy" aria-labelledby="philo-title">
-      <div class="container philosophy__grid">
-        <div class="philosophy__media" data-reveal>
-          <div class="arch arch--light">
-            <picture>
-              <source type="image/webp" srcset="assets/img/photo/turmeric-flower-900.webp 900w, assets/img/photo/turmeric-flower-1600.webp 1600w" sizes="(min-width: 960px) 36vw, 90vw">
-              <img src="assets/img/photo/turmeric-flower-900.jpg" alt="A turmeric flower opening in soft light" width="900" height="641" loading="lazy" data-parallax="0.05">
-            </picture>
-          </div>
-          <div class="orb">
-            <picture>
-              <source type="image/webp" srcset="assets/img/photo/yoga-dawn-800.webp">
-              <img src="assets/img/photo/yoga-dawn-800.jpg" alt="A yoga practitioner in warrior pose at sunrise" width="800" height="533" loading="lazy">
-            </picture>
-          </div>
-        </div>
-
-        <div class="philosophy__copy">
-          <p class="eyebrow" data-reveal><span class="eyebrow__n">07</span>Philosophy</p>
-          <h2 class="h2" id="philo-title" data-reveal style="--d:.08s">Ancient roots, <em>modern precision.</em></h2>
-          <p class="lead" data-reveal style="--d:.16s">We call it Regenerative Intelligence: frontier science woven together with Ayurveda, yoga, breath and rhythm. The five elements of Pancha Tattva — earth, water, fire, air and space — become five measurable systems of the body.</p>
-
-          <ul class="tattva" aria-label="Pancha Tattva">
-            <li data-reveal style="--d:.05s"><i aria-hidden="true"></i><span class="tattva__name">Prithvi</span><span class="tattva__el">Earth</span><span class="tattva__what">Body composition, muscle and bone</span></li>
-            <li data-reveal style="--d:.1s"><i aria-hidden="true"></i><span class="tattva__name">Jala</span><span class="tattva__el">Water</span><span class="tattva__what">Hydration, clearance and IV support</span></li>
-            <li data-reveal style="--d:.15s"><i aria-hidden="true"></i><span class="tattva__name">Agni</span><span class="tattva__el">Fire</span><span class="tattva__what">Metabolism and mitochondrial energy</span></li>
-            <li data-reveal style="--d:.2s"><i aria-hidden="true"></i><span class="tattva__name">Vayu</span><span class="tattva__el">Air</span><span class="tattva__what">Breath, oxygen and hyperbaric oxygen</span></li>
-            <li data-reveal style="--d:.25s"><i aria-hidden="true"></i><span class="tattva__name">Akasha</span><span class="tattva__el">Space</span><span class="tattva__what">Mind, sleep and neuro-reset</span></li>
+          <ul class="hero__metrics d-none d-lg-flex" data-hero-fade>
+            <li><b data-count="30">30</b><span>key measures</span></li>
+            <li><b data-count="8">8</b><span>longevity domains</span></li>
+            <li><b data-count="90">90</b><span>day retest</span></li>
           </ul>
+        </div>
 
-          <a class="btn btn--green" href="/the-ayuva-model" data-reveal>Discover the AYUVA Model</a>
+        <div class="hero__story" data-story>
+          <div class="wrap">
+            <span class="eyebrow eyebrow--gold" data-story-eyebrow>An Indian proverb</span>
+            <p class="hero__proverb" data-story-text>“A healthy person has a thousand wishes, but a sick person has only <span class="serif">one.”</span></p>
+            <div class="hero__story-foot" data-story-foot>
+              <p>True healthcare begins long before disease appears. We help you measure, repair and future-proof your biology — so the thousand wishes stay yours.</p>
+              <a class="link-x link-x--light" href="#about">About AYUVA <i class="bi bi-arrow-down"></i></a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ============ PANCHA TATTVA BAND ============ -->
-    <section class="tattva-band" aria-label="Pancha Tattva — the five elements">
-      <div class="marquee" aria-hidden="true">
-        <div class="marquee__track">
-          <span>Prithvi <small>Earth</small></span><i></i><span>Jala <small>Water</small></span><i></i><span>Agni <small>Fire</small></span><i></i><span>Vayu <small>Air</small></span><i></i><span>Akasha <small>Space</small></span><i></i>
-          <span>Prithvi <small>Earth</small></span><i></i><span>Jala <small>Water</small></span><i></i><span>Agni <small>Fire</small></span><i></i><span>Vayu <small>Air</small></span><i></i><span>Akasha <small>Space</small></span><i></i>
-        </div>
-      </div>
-      <p class="visually-hidden">Prithvi, earth · Jala, water · Agni, fire · Vayu, air · Akasha, space.</p>
-    </section>
-
-    <!-- ============ FOUNDER ============ -->
-    <section class="section section--green founder" aria-label="A word from our founder">
-      <div class="container founder__grid">
-        <div class="founder__portrait" data-reveal>
-          <svg class="founder__ring" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="98"/></svg>
-          <img src="assets/img/photo/founder-prabhu-chandra-mishra.jpg" alt="Prabhu Chandra Mishra, Founder &amp; CEO of AYUVA" width="492" height="492" loading="lazy">
-        </div>
-        <figure class="founder__copy">
-          <p class="eyebrow" data-reveal><span class="eyebrow__n">08</span>From our founder</p>
-          <blockquote data-reveal style="--d:.08s">
-            <p>“People rarely lose their health suddenly. <em>They lose it quietly.</em>”</p>
-          </blockquote>
-          <figcaption data-reveal style="--d:.16s">
-            <span class="founder__name">Prabhu Chandra Mishra</span>
-            <span class="founder__role">Founder &amp; CEO</span>
-            <span class="founder__cred">PhD Researcher, Stem Cell &amp; Regenerative Medicine · Founder President, IASRM</span>
-          </figcaption>
-          <dl class="creds" data-reveal style="--d:.2s">
-            <div><dt>Since 2014</dt><dd>IASRM’s Longevity &amp; Regenerative Medicine conferences</dd></div>
-            <div><dt data-count="40" data-suffix="+">40+</dt><dd>research publications</dd></div>
-            <div><dt data-count="570" data-suffix="+">570+</dt><dd>citations</dd></div>
-          </dl>
-          <a class="link-arrow" href="/about#founder" data-reveal style="--d:.24s">Read the founder’s message <span aria-hidden="true">→</span></a>
-        </figure>
-      </div>
-    </section>
-
-    <!-- ============ ABOUT / WHAT SETS US APART ============ -->
-    <section class="section section--ivory apart" aria-labelledby="apart-title">
-      <div class="container">
-        <header class="section-head section-head--split section-head--wide">
+    <!-- ================= ABOUT + FIVE PROMISES (horizontal) ================= -->
+    <section class="sect sect--light about" id="about" aria-labelledby="about-title">
+      <div class="mesh" aria-hidden="true"></div>
+      <div class="wrap">
+        <div class="about__head">
           <div>
-            <p class="eyebrow" data-reveal><span class="eyebrow__n">09</span>About AYUVA</p>
-            <h2 class="h2" id="apart-title" data-reveal style="--d:.08s">Healthcare that begins <em>before disease does.</em></h2>
+            <span class="eyebrow reveal">About AYUVA</span>
+            <h2 class="h-xl" id="about-title" data-split>Healthcare that begins <span class="serif grad-gold-ink">before disease does.</span></h2>
           </div>
-          <div class="section-head__aside" data-reveal style="--d:.16s">
-            <p>AYUVA was founded on a simple conviction: true healthcare begins long before disease appears. We bring Bharatiya wisdom — Ayurveda, Pancha Tattva, breath and rhythm — together with frontier regenerative science, so every person can measure, repair and future-proof their biology.</p>
+          <div class="about__aside">
+            <p class="reveal">AYUVA was founded on a simple conviction: true healthcare begins long before disease appears. We bring Bharatiya wisdom — Ayurveda, Pancha Tattva, breath and rhythm — together with frontier regenerative science, so every person can measure, repair and future-proof their biology.</p>
+            <div class="about__mv">
+              <div class="reveal"><small>Mission</small><p>To help every person measure, repair and preserve their biology — through physician-governed, science-led longevity medicine rooted in Bharatiya wisdom.</p></div>
+              <div class="reveal"><small>Vision</small><p>To be Asia’s most trusted institution in longevity, regenerative, functional and precision medicine.</p></div>
+            </div>
+            <a class="link-x reveal" href="/about">More about AYUVA <i class="bi bi-arrow-right"></i></a>
           </div>
-        </header>
+        </div>
+      </div>
 
-        <div class="mv">
-          <figure class="mv__item" data-reveal>
-            <figcaption>Mission</figcaption>
-            <blockquote>To help every person measure, repair and preserve their biology — through physician-governed, science-led longevity medicine rooted in Bharatiya wisdom.</blockquote>
-          </figure>
-          <figure class="mv__item" data-reveal style="--d:.1s">
-            <figcaption>Vision</figcaption>
-            <blockquote>To be Asia’s most trusted institution in longevity, regenerative, functional and precision medicine.</blockquote>
-          </figure>
+      <div class="hs" data-hs>
+        <div class="hs__viewport" data-hs-viewport>
+          <div class="hs__track" data-hs-track>
+            <article class="hs__lead">
+              <span class="eyebrow eyebrow--gold">Our philosophy</span>
+              <h3>One institute. <span class="serif grad-gold">Five promises.</span></h3>
+              <p class="hs__hint"><i class="bi bi-arrow-right"></i><span class="d-none d-lg-inline">Keep scrolling to walk through them</span><span class="d-lg-none">Swipe to walk through them</span></p>
+            </article>
+            <article class="hs__card">
+              <div class="hs__media"><img src="assets/img/photo/leaf-veins-1024.webp" alt="" width="1024" height="768" loading="lazy"></div>
+              <div class="hs__copy"><span class="hs__n">01</span><span class="hs__k">Promise one</span><h3>Predict</h3><p>Read the signals of ageing years before symptoms.</p></div>
+            </article>
+            <article class="hs__card">
+              <div class="hs__media"><img src="assets/img/photo/water-drop-1024.webp" alt="" width="1024" height="683" loading="lazy"></div>
+              <div class="hs__copy"><span class="hs__n">02</span><span class="hs__k">Promise two</span><h3>Prevent</h3><p>Correct metabolic and inflammatory drift early.</p></div>
+            </article>
+            <article class="hs__card hs__card--dark">
+              <div class="hs__media"><img src="assets/img/photo/fern-unfurl-700.webp" alt="" width="700" height="933" loading="lazy"></div>
+              <div class="hs__copy"><span class="hs__n">03</span><span class="hs__k">Promise three</span><h3>Personalize</h3><p>One Healthspan Blueprint, written for one person.</p></div>
+            </article>
+            <article class="hs__card">
+              <div class="hs__media"><img src="assets/img/photo/meditation-white-700.webp" alt="" width="700" height="907" loading="lazy"></div>
+              <div class="hs__copy"><span class="hs__n">04</span><span class="hs__k">Promise four</span><h3>Preserve</h3><p>Protect muscle, bone, brain and hormones for decades.</p></div>
+            </article>
+            <article class="hs__card hs__card--gold">
+              <div class="hs__media"><img src="assets/img/photo/yoga-balance-960.webp" alt="" width="960" height="640" loading="lazy"></div>
+              <div class="hs__copy"><span class="hs__n">05</span><span class="hs__k">Promise five</span><h3>Perform</h3><p>Energy, focus and sleep for the life you lead now.</p></div>
+            </article>
+          </div>
+        </div>
+        <div class="wrap">
+          <div class="hs__progress"><span data-hs-count>01</span><div class="hs__bar"><i data-hs-bar></i></div><span>05</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= THE NEW STANDARD (183 → 30) ================= -->
+    <section class="sect sect--dark standard" id="standard">
+      <div class="aurora aurora--soft" aria-hidden="true"><i class="a1"></i><i class="a3"></i></div>
+      <div class="wrap">
+        <div class="row gy-5 gx-lg-5 align-items-center">
+          <div class="col-lg-5">
+            <span class="eyebrow eyebrow--gold reveal">The new standard</span>
+            <h2 class="h-xl" data-split>We stopped counting markers. <span class="serif grad-gold">We started choosing them.</span></h2>
+            <p class="lead-x reveal">A 183-marker report creates noise, cost and anxiety. The AYUVA Key Longevity Panel measures the signals that best predict how you will age — and every one of them changes a decision.</p>
+            <a class="btn-x btn-gold reveal" href="/key-longevity-panel" data-magnetic>See all 30 measures <span class="ico"><i class="bi bi-arrow-up-right"></i></span></a>
+          </div>
+          <div class="col-lg-7">
+            <div class="matrix glass" data-matrix>
+              <div class="matrix__head">
+                <span class="matrix__state"><b data-matrix-num>183</b><span data-matrix-label>markers · noise</span></span>
+                <span class="matrix__legend"><i></i>Chosen by AYUVA</span>
+              </div>
+              <div class="matrix__dots" data-matrix-dots aria-hidden="true"></div>
+              <p class="matrix__note"><i class="bi bi-info-circle"></i> Every one of the 30 changes a decision.</p>
+            </div>
+          </div>
         </div>
 
-        <h3 class="apart__label eyebrow" data-reveal>What sets us apart</h3>
-        <ol class="apart__grid">
-          <li data-reveal><span class="apart__n">i.</span><h4>Regenerative medicine is our origin</h4><p>Born from IASRM’s Longevity &amp; Regenerative Medicine conferences, running since 2014, and a founder with 40+ research publications and 570+ citations.</p></li>
-          <li data-reveal style="--d:.08s"><span class="apart__n">ii.</span><h4>Physician-governed, every step</h4><p>Every diagnosis, protocol and therapy is cleared and reviewed by our clinical team — no wellness guesswork.</p></li>
-          <li data-reveal style="--d:.16s"><span class="apart__n">iii.</span><h4>Focused diagnostics</h4><p>Thirty key measures, chosen because each one changes a decision — and retested so progress is proven.</p></li>
-          <li data-reveal style="--d:.24s"><span class="apart__n">iv.</span><h4>Science with a soul</h4><p>Regenerative Intelligence: frontier therapies woven together with Ayurveda, yoga, breath and rhythm.</p></li>
-        </ol>
+        <div class="stats">
+          <div class="stat glass reveal-card">
+            <svg class="stat__ring" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="54"/><circle class="p" cx="60" cy="60" r="54"/></svg>
+            <b class="stat__n" data-count="30">30</b>
+            <p>key measures — 22 blood &amp; urine, 8 functional</p>
+          </div>
+          <div class="stat glass reveal-card">
+            <svg class="stat__ring" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="54"/><circle class="p" cx="60" cy="60" r="54"/></svg>
+            <b class="stat__n" data-count="8">8</b>
+            <p>longevity domains, each with a clear action</p>
+          </div>
+          <div class="stat glass reveal-card">
+            <svg class="stat__ring" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="54"/><circle class="p" cx="60" cy="60" r="54"/></svg>
+            <b class="stat__n" data-count="90">90</b>
+            <p>days to retest — change is measured, not assumed</p>
+          </div>
+        </div>
 
-        <ul class="values" aria-label="Our values">
-          <li data-reveal><strong>Measure first</strong><span>No protocol before a baseline.</span></li>
-          <li data-reveal style="--d:.06s"><strong>Evidence over hype</strong><span>We say what is proven — and what is not.</span></li>
-          <li data-reveal style="--d:.12s"><strong>Rooted in Bharat</strong><span>Ayurveda and yoga, taken seriously.</span></li>
-          <li data-reveal style="--d:.18s"><strong>Whole person</strong><span>Cells, sleep, mind, relationships.</span></li>
-          <li data-reveal style="--d:.24s"><strong>Privacy always</strong><span>Your data stays yours.</span></li>
-        </ul>
+        <!-- Eight domains -->
+        <div class="domains" data-domains>
+          <div class="domains__intro">
+            <span class="eyebrow eyebrow--gold reveal">The AYUVA Key Longevity Panel</span>
+            <h3 class="h-lg" data-split>Thirty measures. Eight domains. <span class="serif grad-gold">One visit.</span></h3>
+            <p class="reveal">Every AYUVA journey begins here. 22 blood and urine markers in one draw · 8 functional measures in clinic.</p>
+          </div>
+          <div class="domains__ui reveal">
+            <div class="domains__tabs" role="tablist" aria-label="Longevity domains">
+              <button role="tab" aria-selected="true" data-d="0"><span>01</span>Metabolic</button>
+              <button role="tab" aria-selected="false" data-d="1"><span>02</span>Heart &amp; vessels</button>
+              <button role="tab" aria-selected="false" data-d="2"><span>03</span>Inflammation</button>
+              <button role="tab" aria-selected="false" data-d="3"><span>04</span>Liver &amp; kidney</button>
+              <button role="tab" aria-selected="false" data-d="4"><span>05</span>Hormones</button>
+              <button role="tab" aria-selected="false" data-d="5"><span>06</span>Nutrients</button>
+              <button role="tab" aria-selected="false" data-d="6"><span>07</span>Body &amp; strength</button>
+              <button role="tab" aria-selected="false" data-d="7"><span>08</span>Fitness &amp; mind</button>
+            </div>
+            <div class="domains__panel glass" role="tabpanel" aria-live="polite">
+              <div class="domains__top">
+                <span class="domains__big" data-d-num>01</span>
+                <span class="domains__type" data-d-type><i class="bi bi-droplet"></i> Blood</span>
+              </div>
+              <h4 class="domains__name" data-d-name>Metabolic</h4>
+              <ul class="tags" data-d-tags><li>HbA1c</li><li>Fasting glucose</li><li>Fasting insulin (HOMA-IR)</li></ul>
+              <div class="domains__progress"><i data-d-bar></i></div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- ============ LEADERSHIP ============ -->
-    <section class="section section--deep team" aria-labelledby="team-title">
-      <div class="container">
-        <header class="section-head section-head--split">
+    <!-- ================= HOW IT WORKS (stacking cards) ================= -->
+    <section class="sect sect--light how">
+      <div class="mesh mesh--b" aria-hidden="true"></div>
+      <div class="wrap">
+        <div class="head head--center">
+          <span class="eyebrow reveal">How it works</span>
+          <h2 class="h-xl" data-split>Measure. Mentor. <span class="serif grad-gold-ink">Monitor.</span></h2>
+        </div>
+
+        <div class="scards">
+          <article class="scard" data-scard>
+            <div class="scard__copy">
+              <span class="scard__n">01</span>
+              <h3>Measure</h3>
+              <p>The Key Longevity Panel and AYUVA 360 assessment: blood, body, fitness, sleep and mind in one visit.</p>
+              <ul class="tags tags--light"><li>Blood</li><li>Body</li><li>Fitness</li><li>Sleep</li><li>Mind</li></ul>
+            </div>
+            <div class="scard__media"><img src="assets/img/photo/water-drop-1024.webp" alt="A drop meeting still water" width="1024" height="683" loading="lazy"></div>
+          </article>
+          <article class="scard scard--dark" data-scard>
+            <div class="scard__copy">
+              <span class="scard__n">02</span>
+              <h3>Mentor</h3>
+              <p>A physician turns your results into your Healthspan Blueprint and matches you to the right programme.</p>
+              <ul class="tags"><li>Physician consultation</li><li>Healthspan Blueprint</li><li>Programme match</li></ul>
+            </div>
+            <div class="scard__media"><img src="assets/img/photo/leaf-light-1024.webp" alt="Sunlight through a green leaf" width="1024" height="681" loading="lazy"></div>
+          </article>
+          <article class="scard scard--gold" data-scard>
+            <div class="scard__copy">
+              <span class="scard__n">03</span>
+              <h3>Monitor</h3>
+              <p>Retest at 90 days, compare against your own baseline and adjust — progress proven, not promised.</p>
+              <ul class="tags tags--ink"><li>90-day retest</li><li>Your own baseline</li><li>Adjust</li></ul>
+            </div>
+            <div class="scard__media"><img src="assets/img/photo/himalaya-sunrise-1400.webp" alt="First light over the Himalaya" width="1400" height="1050" loading="lazy"></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PROGRAMMES ================= -->
+    <section class="sect sect--dark programmes" id="programmes">
+      <div class="aurora aurora--soft aurora--right" aria-hidden="true"><i class="a2"></i><i class="a4"></i></div>
+      <div class="wrap">
+        <div class="head">
           <div>
-            <p class="eyebrow" data-reveal><span class="eyebrow__n">10</span>Team</p>
-            <h2 class="h2" id="team-title" data-reveal style="--d:.08s">Clinical &amp; advisory <em>leadership.</em></h2>
+            <span class="eyebrow eyebrow--gold reveal">Programmes</span>
+            <h2 class="h-xl" data-split>Begin where <span class="serif grad-gold">you are.</span></h2>
           </div>
-          <div class="section-head__aside" data-reveal style="--d:.16s">
-            <p>AYUVA is led by scientists, surgeons, a gynaecologist and a psychotherapist — so cells, hormones and the mind are read together.</p>
-            <a class="btn btn--ghost" href="/team">Meet the team</a>
+          <div class="head__aside reveal">
+            <p>Six signature pathways, one standard of care.</p>
+            <div class="swiper-ctrl">
+              <button class="round-btn" data-prog-prev aria-label="Previous programme"><i class="bi bi-arrow-left"></i></button>
+              <button class="round-btn" data-prog-next aria-label="Next programme"><i class="bi bi-arrow-right"></i></button>
+            </div>
           </div>
-        </header>
-
-        <ul class="people">
-          <li class="person" data-reveal>
-            <div class="person__ph person__ph--img"><img src="assets/img/photo/founder-prabhu-chandra-mishra.jpg" alt="" width="492" height="492" loading="lazy"></div>
-            <h3 class="person__name">Prabhu Chandra Mishra</h3>
-            <p class="person__role">Founder &amp; CEO</p>
-            <p class="person__bio">PhD Researcher in Biotechnology (Stem Cell &amp; Regenerative Medicine) and MedTech entrepreneur.</p>
-          </li>
-          <li class="person" data-reveal style="--d:.06s">
-            <div class="person__ph" aria-hidden="true">GA</div>
-            <h3 class="person__name">Dr Garima Agarwal</h3>
-            <p class="person__role">Chief Medical Advisor</p>
-            <p class="person__bio">Obstetrician &amp; Gynaecologist.</p>
-          </li>
-          <li class="person" data-reveal style="--d:.12s">
-            <div class="person__ph" aria-hidden="true">SB</div>
-            <h3 class="person__name">Dr Sandeep Bhasin, MS</h3>
-            <p class="person__role">Surgeon</p>
-            <p class="person__bio">Surgeon and longevity medicine expert.</p>
-          </li>
-          <li class="person" data-reveal style="--d:.18s">
-            <div class="person__ph" aria-hidden="true">AB</div>
-            <h3 class="person__name">Dr Arpit Bansal</h3>
-            <p class="person__role">Surgeon</p>
-            <p class="person__bio">Laparoscopic and cancer surgeon.</p>
-          </li>
-          <li class="person" data-reveal style="--d:.24s">
-            <div class="person__ph" aria-hidden="true">PD</div>
-            <h3 class="person__name">Dr Priyamvada Dua</h3>
-            <p class="person__role">Integrative Psychotherapist</p>
-            <p class="person__bio">MSc Neuroscience, Imperial College London · PhD, Barts. Leads the SUSHUPTI Sleep Reset Programme.</p>
-          </li>
-        </ul>
+        </div>
       </div>
-    </section>
 
-    <!-- ============ ACADEMY ============ -->
-    <section class="section section--paper academy" aria-labelledby="academy-title">
-      <div class="rings rings--soft rings--academy" aria-hidden="true"><span></span><span></span></div>
-      <div class="container academy__grid">
-        <div class="academy__copy">
-          <p class="eyebrow" data-reveal><span class="eyebrow__n">11</span>AYUVA Academy — for clinicians</p>
-          <h2 class="h2 h2--sm" id="academy-title" data-reveal style="--d:.08s">Fellowship in Anti-Ageing, Regenerative, Aesthetic <em>&amp; Functional Medicine.</em></h2>
-          <p class="lead" data-reveal style="--d:.16s">An IASRM fellowship for doctors building a longevity practice. Knowledge and research partner: Stemmax Research &amp; Therapeutics.</p>
-          <ul class="pills pills--light" data-reveal style="--d:.2s" aria-label="Curriculum">
-            <li>Stem cells</li><li>PRP</li><li>Exosomes</li><li>SVF &amp; nanofat</li><li>Secretomes</li><li>Peptides</li><li>BHRT</li><li>Nutritional IV</li><li>Senolytics</li><li>Mitochondria</li><li>NAD therapies</li><li>Gut microbiome</li>
+      <div class="swiper prog-swiper" data-cursor-text="Drag">
+        <div class="swiper-wrapper">
+          <a class="swiper-slide prog" href="/programmes/ceo-cellular-week" style="--tone:#0E3B2E">
+            <img src="assets/img/photo/himalaya-sunrise-800.webp" alt="" width="800" height="600" loading="lazy">
+            <span class="prog__tag">1, 3 or 5 days</span>
+            <div class="prog__body">
+              <span class="prog__by"><img src="assets/img/logo/ayuva-icon-gold.png" alt="" width="22" height="22">by AYUVA</span>
+              <h3>CEO Cellular Week</h3>
+              <p>For founders, CEOs and high performers.</p>
+              <span class="prog__go"><i class="bi bi-arrow-up-right"></i></span>
+            </div>
+          </a>
+          <a class="swiper-slide prog" href="/programmes/meridian" style="--tone:#154A3A">
+            <img src="assets/img/photo/meditation-white-700.webp" alt="" width="700" height="907" loading="lazy">
+            <span class="prog__tag">Dawn · Zenith · Solstice</span>
+            <div class="prog__body">
+              <span class="prog__by"><img src="assets/img/logo/ayuva-icon-gold.png" alt="" width="22" height="22">by AYUVA</span>
+              <h3>AYUVA Meridian</h3>
+              <p>For women in high-performance roles.</p>
+              <span class="prog__go"><i class="bi bi-arrow-up-right"></i></span>
+            </div>
+          </a>
+          <a class="swiper-slide prog" href="/programmes/sushupti" style="--tone:#0F1A1E">
+            <img src="assets/img/photo/dusk-meditation-960.webp" alt="" width="960" height="557" loading="lazy">
+            <span class="prog__tag">Day or overnight</span>
+            <div class="prog__body">
+              <span class="prog__by"><img src="assets/img/logo/ayuva-icon-gold.png" alt="" width="22" height="22">by AYUVA</span>
+              <h3>SUSHUPTI</h3>
+              <p>The Sleep Reset Programme.</p>
+              <span class="prog__go"><i class="bi bi-arrow-up-right"></i></span>
+            </div>
+          </a>
+          <a class="swiper-slide prog" href="/programmes/ojas" style="--tone:#5A1F2B">
+            <img src="assets/img/photo/turmeric-flower-900.webp" alt="" width="900" height="641" loading="lazy">
+            <span class="prog__tag">3 days · private</span>
+            <div class="prog__body">
+              <span class="prog__by"><img src="assets/img/logo/ayuva-icon-gold.png" alt="" width="22" height="22">by AYUVA</span>
+              <h3>OJAS</h3>
+              <p>The Sexual &amp; Intimate Health Intensive.</p>
+              <span class="prog__go"><i class="bi bi-arrow-up-right"></i></span>
+            </div>
+          </a>
+          <a class="swiper-slide prog" href="/programmes/sovereign" style="--tone:#03100A">
+            <img src="assets/img/photo/fern-unfurl-700.webp" alt="" width="700" height="933" loading="lazy">
+            <span class="prog__tag">By invitation</span>
+            <div class="prog__body">
+              <span class="prog__by"><img src="assets/img/logo/ayuva-icon-gold.png" alt="" width="22" height="22">by AYUVA</span>
+              <h3>AYUVA Sovereign</h3>
+              <p>Annual membership — a twelve-month clinical relationship.</p>
+              <span class="prog__go"><i class="bi bi-arrow-up-right"></i></span>
+            </div>
+          </a>
+          <a class="swiper-slide prog" href="/academy" style="--tone:#1C3A30">
+            <img src="assets/img/photo/leaf-veins-1024.webp" alt="" width="1024" height="768" loading="lazy">
+            <span class="prog__tag">1-year fellowship</span>
+            <div class="prog__body">
+              <span class="prog__by"><img src="assets/img/logo/ayuva-icon-gold.png" alt="" width="22" height="22">by AYUVA</span>
+              <h3>Academy</h3>
+              <p>For clinicians building a longevity practice.</p>
+              <span class="prog__go"><i class="bi bi-arrow-up-right"></i></span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="wrap">
+        <div class="prog-foot">
+          <div class="swiper-progress" data-prog-progress><i></i></div>
+          <a class="btn-x btn-glass" href="/programmes" data-magnetic>Explore programmes <span class="ico"><i class="bi bi-arrow-up-right"></i></span></a>
+        </div>
+
+        <div class="soon glass reveal" id="coming-soon">
+          <div class="soon__copy">
+            <span class="pill pill--sm"><span class="pill__dot"></span>Coming soon</span>
+            <h3>Longevity for every stage of life.</h3>
+            <p>Five new AYUVA signatures are in their founding-cohort stage. Join the waitlist to be first to hear when public dates open.</p>
+          </div>
+          <ul class="soon__list">
+            <li><b>GENZIVITY</b><small>Ages 18–28</small></li>
+            <li><b>AYUVA 21</b><small>The Metabolic Reset</small></li>
+            <li><b>SANJEEVANI</b><small>Healthy ageing, 60+</small></li>
+            <li><b>PARIVAR</b><small>Family Longevity Day</small></li>
+            <li><b>Boardroom</b><small>Corporate longevity</small></li>
           </ul>
-          <p class="academy__intake" data-reveal style="--d:.24s"><span>Intakes</span> Every February and August.</p>
-          <a class="btn btn--green" href="/academy" data-reveal style="--d:.28s">Request the prospectus</a>
-          <p class="academy__note" data-reveal>A training programme, not a licence: the fellowship does not confer additional registration or a right to practise; practical modules are educational exposure.</p>
-        </div>
-        <dl class="glance">
-          <div data-reveal><dt>1 year</dt><dd>Hybrid · online lectures Fri or Sun, 8–10 PM IST</dd></div>
-          <div data-reveal style="--d:.08s"><dt>16 days</dt><dd>Hands-on at Sunrise Hospital, New Delhi</dd></div>
-          <div data-reveal style="--d:.16s"><dt>20+</dt><dd>Global faculty with one-to-one mentorship</dd></div>
-          <div data-reveal style="--d:.24s"><dt>1 paper</dt><dd>Original research for a peer-reviewed journal</dd></div>
-        </dl>
-      </div>
-    </section>
-
-    <!-- ============ FAQ ============ -->
-    <section class="section section--green faq" aria-labelledby="faq-title">
-      <div class="container faq__grid">
-        <header class="faq__head">
-          <p class="eyebrow" data-reveal><span class="eyebrow__n">12</span>FAQ</p>
-          <h2 class="h2" id="faq-title" data-reveal style="--d:.08s">Frequently asked <em>questions.</em></h2>
-          <a class="link-arrow" href="/faq" data-reveal style="--d:.16s">All questions <span aria-hidden="true">→</span></a>
-        </header>
-        <div class="faq__list" data-faq>
-          <details data-reveal><summary>What is longevity medicine?</summary><div class="faq__a"><p>Medicine that measures how you are ageing — not only whether you are ill — and acts early to protect muscle, metabolism, heart, brain, hormones and sleep.</p></div></details>
-          <details data-reveal><summary>Do I need to be unwell to come to AYUVA?</summary><div class="faq__a"><p>No. Most of our members feel well. They come to find out how they are ageing while there is still time to change it.</p></div></details>
-          <details data-reveal><summary>Why 30 measures and not 180?</summary><div class="faq__a"><p>Because every test should change a decision. Thirty chosen measures give clearer answers, lower cost and less anxiety. Deeper tests are added only when a result asks for them.</p></div></details>
-          <details data-reveal><summary>Who reviews my results?</summary><div class="faq__a"><p>A physician from our clinical team reviews every result with you and writes your Healthspan Blueprint.</p></div></details>
-          <details data-reveal><summary>Is this a replacement for my own doctor?</summary><div class="faq__a"><p>No. We work alongside your doctor and share reports with your consent. Anyone with an existing condition receives a partner-hospital opinion.</p></div></details>
-          <details data-reveal><summary>Are the therapies safe?</summary><div class="faq__a"><p>Every therapy is gated by a physician, with specific checks before HBOT, sauna and cold plunge. If a check is not met, the therapy waits.</p></div></details>
-          <details data-reveal><summary>Will I see results?</summary><div class="faq__a"><p>We do not promise outcomes. We retest at 90 days and show you, number by number, what has changed.</p></div></details>
-          <details data-reveal><summary>How is my data protected?</summary><div class="faq__a"><p>Your records are confidential and handled under ethics- and privacy-guided practices. We never sell or share your data for marketing.</p></div></details>
-          <details data-reveal><summary>How much does it cost?</summary><div class="faq__a"><p>Fees depend on the programme and format. Our team shares them on your first call.</p></div></details>
+          <a class="btn-x btn-gold" href="/book" data-magnetic>Join the waitlist <span class="ico"><i class="bi bi-arrow-up-right"></i></span></a>
         </div>
       </div>
     </section>
 
-    <!-- ============ CLOSING CTA ============ -->
-    <section class="cta" aria-labelledby="cta-title">
-      <div class="cta__bg" aria-hidden="true">
-        <picture>
-          <source type="image/webp" srcset="assets/img/photo/yoga-dawn-800.webp 800w, assets/img/photo/yoga-dawn-1400.webp 1400w, assets/img/photo/yoga-dawn-2400.webp 2400w" sizes="100vw">
-          <img src="assets/img/photo/yoga-dawn-1400.jpg" alt="" width="1400" height="933" loading="lazy" data-parallax="0.12">
-        </picture>
-      </div>
-      <div class="container cta__inner">
-        <img class="cta__icon" src="assets/img/logo/ayuva-icon-gold.png" alt="" width="64" height="64" data-reveal>
-        <h2 class="h2 cta__title" id="cta-title" data-reveal style="--d:.08s">Your healthspan begins with <em>one measurement.</em></h2>
-        <div class="btn-row btn-row--center" data-reveal style="--d:.16s">
-          <a class="btn btn--gold" href="/book">Book your Key Longevity Panel</a>
-          <a class="btn btn--ghost" href="tel:+919643696969">Call +91 96436 96969</a>
+    <!-- ================= REGENERATIVE STACK + SAFETY ================= -->
+    <section class="sect sect--light therapies">
+      <div class="mesh" aria-hidden="true"></div>
+      <div class="wrap">
+        <div class="head">
+          <div>
+            <span class="eyebrow reveal">The AYUVA regenerative stack</span>
+            <h2 class="h-xl" data-split>Tools, <span class="serif grad-gold-ink">not packages.</span></h2>
+          </div>
+          <p class="head__aside reveal">Each therapy is chosen from your Healthspan Blueprint, cleared by a physician and re-measured. If a therapy will not move one of your numbers, we will not recommend it.</p>
         </div>
+
+        <div class="tgrid" data-spotlight>
+          <article class="tcard tgrid__w2 reveal-card">
+            <span class="tcard__icon"><i class="bi bi-droplet-half"></i></span>
+            <h3>NAD+ &amp; IV</h3>
+            <p>Physician-dosed intravenous nutrients, given with blood-pressure monitoring.</p>
+            <small>Chosen when your Blueprint shows a nutrient or energy need.</small>
+          </article>
+          <article class="tcard reveal-card">
+            <span class="tcard__icon"><i class="bi bi-wind"></i></span>
+            <h3>Hyperbaric oxygen</h3>
+            <p>Breathing oxygen in a pressurised chamber at 1.5–2.0 ATA.</p>
+            <small>ENT clearance first.</small>
+          </article>
+          <article class="tcard tcard--img reveal-card">
+            <img src="assets/img/photo/ice-cave-960.webp" alt="" width="960" height="640" loading="lazy">
+            <div class="tcard__over">
+              <span class="tcard__icon"><i class="bi bi-thermometer-half"></i></span>
+              <h3>Thermal contrast</h3>
+              <p>Infrared sauna followed by cold plunge, in measured cycles.</p>
+            </div>
+          </article>
+          <article class="tcard reveal-card">
+            <span class="tcard__icon"><i class="bi bi-bandaid"></i></span>
+            <h3>Regenerative consult</h3>
+            <p>PRP and peptide options discussed only when an indication exists.</p>
+            <small>Investigational uses are explained as investigational.</small>
+          </article>
+          <article class="tcard reveal-card">
+            <span class="tcard__icon"><i class="bi bi-lightning-charge"></i></span>
+            <h3>AYUVA Sculpt</h3>
+            <p>EMS, HIFEM and radiofrequency for muscle tone and pelvic-floor strength.</p>
+          </article>
+          <article class="tcard tcard--dark tgrid__w2 reveal-card">
+            <span class="tcard__icon"><i class="bi bi-heart-pulse"></i></span>
+            <h3>Neuro &amp; HRV</h3>
+            <p>Heart-rate-variability biofeedback, red-light sessions and cognitive training.</p>
+            <small>Guided by your HRV, sleep and cognitive scores.</small>
+            <svg class="tcard__wave" viewBox="0 0 400 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40 L60 40 L75 40 L85 14 L97 66 L108 30 L116 40 L170 40 L185 40 L195 10 L207 70 L218 28 L226 40 L280 40 L295 40 L305 16 L317 64 L328 32 L336 40 L400 40"/></svg>
+          </article>
+          <article class="tcard tcard--img tgrid__w2 reveal-card">
+            <img src="assets/img/photo/dusk-meditation-960.webp" alt="" width="960" height="557" loading="lazy">
+            <div class="tcard__over">
+              <span class="tcard__icon"><i class="bi bi-flower1"></i></span>
+              <h3>Yoga &amp; breath</h3>
+              <p>Pranayama, meditation, Yoga Nidra and Dinacharya — part of every programme.</p>
+            </div>
+          </article>
+          <article class="tcard tcard--img tgrid__w2 reveal-card">
+            <img src="assets/img/photo/bioreboot-bowl-960.webp" alt="" width="960" height="720" loading="lazy">
+            <div class="tcard__over">
+              <span class="tcard__icon"><i class="bi bi-basket"></i></span>
+              <h3>BioReboot nutrition</h3>
+              <p>Anti-inflammatory, low-glycaemic menus planned from your metabolic results.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="safety reveal">
+          <div class="safety__head">
+            <span class="pill pill--sm"><i class="bi bi-shield-lock"></i> Safety &amp; governance</span>
+            <h3>Every therapy is gated <span class="serif grad-gold">by a physician.</span></h3>
+            <p>Powerful tools need careful gates. If a check is not met, the therapy waits.</p>
+            <a class="link-x link-x--light" href="/safety">How we keep care safe <i class="bi bi-arrow-right"></i></a>
+          </div>
+          <div class="safety__gates">
+            <div class="gate"><h4>Before HBOT</h4><ul><li>ENT clearance</li><li>No untreated pneumothorax</li><li>Blood sugar check if diabetic</li></ul></div>
+            <div class="gate"><h4>Before sauna</h4><ul><li>Blood pressure below 150/90</li><li>No dehydration</li><li>Electrolytes normal</li></ul></div>
+            <div class="gate"><h4>Before cold plunge</h4><ul><li>No unstable angina</li><li>No severe Raynaud’s</li><li>10-minute observation after</li></ul></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PANCHA TATTVA (orbit) ================= -->
+    <section class="sect sect--dark tattva" id="tattva">
+      <div class="aurora" aria-hidden="true"><i class="a1"></i><i class="a2"></i><i class="a3"></i></div>
+      <div class="wrap">
+        <div class="row gy-5 gx-lg-5 align-items-center">
+          <div class="col-lg-5">
+            <span class="eyebrow eyebrow--gold reveal">Pancha Tattva</span>
+            <h2 class="h-xl" data-split>Ancient roots, <span class="serif grad-gold">modern precision.</span></h2>
+            <p class="lead-x reveal">We call it Regenerative Intelligence: frontier science woven together with Ayurveda, yoga, breath and rhythm. The five elements of Pancha Tattva — earth, water, fire, air and space — become five measurable systems of the body.</p>
+            <a class="btn-x btn-glass reveal" href="/the-ayuva-model" data-magnetic>Discover the AYUVA Model <span class="ico"><i class="bi bi-arrow-up-right"></i></span></a>
+          </div>
+          <div class="col-lg-7">
+            <div class="orbit" data-orbit>
+              <div class="orbit__ring orbit__ring--1"></div>
+              <div class="orbit__ring orbit__ring--2"></div>
+              <svg class="orbit__arc" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="96" data-orbit-arc/></svg>
+              <div class="orbit__core">
+                <img class="is-active" src="assets/img/photo/himalaya-sunrise-800.webp" alt="" width="800" height="600" loading="lazy">
+                <img src="assets/img/photo/water-drop-1024.webp" alt="" width="1024" height="683" loading="lazy">
+                <img src="assets/img/photo/turmeric-flower-900.webp" alt="" width="900" height="641" loading="lazy">
+                <img src="assets/img/photo/yoga-balance-960.webp" alt="" width="960" height="640" loading="lazy">
+                <img src="assets/img/photo/meditation-white-700.webp" alt="" width="700" height="907" loading="lazy">
+                <div class="orbit__info" aria-live="polite">
+                  <small data-t-el>Earth</small>
+                  <b class="serif" data-t-name>Prithvi</b>
+                  <p data-t-what>Body composition, muscle and bone</p>
+                </div>
+              </div>
+              <div class="orbit__nodes">
+                <button class="node is-active" data-t="0" style="--a:-90deg"><span>Prithvi</span></button>
+                <button class="node" data-t="1" style="--a:-18deg"><span>Jala</span></button>
+                <button class="node" data-t="2" style="--a:54deg"><span>Agni</span></button>
+                <button class="node" data-t="3" style="--a:126deg"><span>Vayu</span></button>
+                <button class="node" data-t="4" style="--a:198deg"><span>Akasha</span></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FOUNDER + TEAM ================= -->
+    <section class="sect sect--light founder">
+      <div class="mesh mesh--b" aria-hidden="true"></div>
+      <div class="wrap">
+        <div class="row gy-5 gx-lg-5 align-items-center">
+          <div class="col-lg-5">
+            <div class="founder__frame reveal-card">
+              <img src="assets/img/photo/founder-prabhu-chandra-mishra.jpg" alt="Prabhu Chandra Mishra, Founder &amp; CEO of AYUVA" width="492" height="492" loading="lazy">
+              <div class="founder__badge">
+                <b>Prabhu Chandra Mishra</b>
+                <small>Founder &amp; CEO</small>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <span class="eyebrow reveal">From our founder</span>
+            <blockquote class="founder__quote" data-scrub>“People rarely lose their health suddenly. <span class="serif">They lose it quietly.”</span></blockquote>
+            <p class="founder__cred reveal">PhD Researcher, Stem Cell &amp; Regenerative Medicine · Founder President, IASRM</p>
+            <div class="creds">
+              <div class="reveal"><b>2014</b><small>IASRM conferences running since</small></div>
+              <div class="reveal"><b><span data-count="40">40</span>+</b><small>research publications</small></div>
+              <div class="reveal"><b><span data-count="570">570</span>+</b><small>citations</small></div>
+            </div>
+            <a class="link-x reveal" href="/about#founder">Read the founder’s message <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="team">
+          <div class="head">
+            <div>
+              <span class="eyebrow reveal">Clinical &amp; advisory leadership</span>
+              <h2 class="h-lg" data-split>Cells, hormones and the mind, <span class="serif grad-gold-ink">read together.</span></h2>
+            </div>
+            <a class="btn-x btn-dark reveal" href="/team" data-magnetic>Meet the team <span class="ico"><i class="bi bi-arrow-up-right"></i></span></a>
+          </div>
+          <div class="team__row">
+            <article class="member reveal-card"><span class="member__av">GA</span><div><h3>Dr Garima Agarwal</h3><small>Chief Medical Advisor</small><p>Obstetrician &amp; Gynaecologist.</p></div></article>
+            <article class="member reveal-card"><span class="member__av">SB</span><div><h3>Dr Sandeep Bhasin, MS</h3><small>Surgeon</small><p>Surgeon and longevity medicine expert.</p></div></article>
+            <article class="member reveal-card"><span class="member__av">AB</span><div><h3>Dr Arpit Bansal</h3><small>Surgeon</small><p>Laparoscopic and cancer surgeon.</p></div></article>
+            <article class="member reveal-card"><span class="member__av">PD</span><div><h3>Dr Priyamvada Dua</h3><small>Integrative Psychotherapist</small><p>MSc Neuroscience, Imperial College London · PhD, Barts.</p></div></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FAQ ================= -->
+    <section class="sect sect--dark faq">
+      <div class="wrap">
+        <div class="row gy-5 gx-lg-5">
+          <div class="col-lg-5">
+            <div class="faq__side">
+              <span class="eyebrow eyebrow--gold reveal">FAQ</span>
+              <h2 class="h-xl" data-split>Questions, <span class="serif grad-gold">answered.</span></h2>
+              <div class="ask glass reveal">
+                <span class="ask__tile"><i class="bi bi-chat-heart"></i></span>
+                <div>
+                  <b>Still have a question?</b>
+                  <p>Tell us what you are looking for and we will call you back within one working day.</p>
+                  <a href="tel:+919643696969"><i class="bi bi-telephone"></i> +91 96436 96969</a>
+                  <a href="mailto:wellness@theayuva.com"><i class="bi bi-envelope"></i> wellness@theayuva.com</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="acc" id="faqAcc">
+              <div class="acc__item reveal">
+                <h3 class="acc__h"><button class="acc__btn" type="button" data-bs-toggle="collapse" data-bs-target="#f1" aria-expanded="true" aria-controls="f1">What is longevity medicine?<i></i></button></h3>
+                <div id="f1" class="collapse show" data-bs-parent="#faqAcc"><p class="acc__body">Medicine that measures how you are ageing — not only whether you are ill — and acts early to protect muscle, metabolism, heart, brain, hormones and sleep.</p></div>
+              </div>
+              <div class="acc__item reveal">
+                <h3 class="acc__h"><button class="acc__btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f2" aria-expanded="false" aria-controls="f2">Do I need to be unwell to come to AYUVA?<i></i></button></h3>
+                <div id="f2" class="collapse" data-bs-parent="#faqAcc"><p class="acc__body">No. Most of our members feel well. They come to find out how they are ageing while there is still time to change it.</p></div>
+              </div>
+              <div class="acc__item reveal">
+                <h3 class="acc__h"><button class="acc__btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f3" aria-expanded="false" aria-controls="f3">Why 30 measures and not 180?<i></i></button></h3>
+                <div id="f3" class="collapse" data-bs-parent="#faqAcc"><p class="acc__body">Because every test should change a decision. Thirty chosen measures give clearer answers, lower cost and less anxiety. Deeper tests are added only when a result asks for them.</p></div>
+              </div>
+              <div class="acc__item reveal">
+                <h3 class="acc__h"><button class="acc__btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f4" aria-expanded="false" aria-controls="f4">Who reviews my results?<i></i></button></h3>
+                <div id="f4" class="collapse" data-bs-parent="#faqAcc"><p class="acc__body">A physician from our clinical team reviews every result with you and writes your Healthspan Blueprint.</p></div>
+              </div>
+              <div class="acc__item reveal">
+                <h3 class="acc__h"><button class="acc__btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f5" aria-expanded="false" aria-controls="f5">Is this a replacement for my own doctor?<i></i></button></h3>
+                <div id="f5" class="collapse" data-bs-parent="#faqAcc"><p class="acc__body">No. We work alongside your doctor and share reports with your consent. Anyone with an existing condition receives a partner-hospital opinion.</p></div>
+              </div>
+              <div class="acc__item reveal">
+                <h3 class="acc__h"><button class="acc__btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f6" aria-expanded="false" aria-controls="f6">Will I see results?<i></i></button></h3>
+                <div id="f6" class="collapse" data-bs-parent="#faqAcc"><p class="acc__body">We do not promise outcomes. We retest at 90 days and show you, number by number, what has changed.</p></div>
+              </div>
+              <div class="acc__item reveal">
+                <h3 class="acc__h"><button class="acc__btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f7" aria-expanded="false" aria-controls="f7">How is my data protected?<i></i></button></h3>
+                <div id="f7" class="collapse" data-bs-parent="#faqAcc"><p class="acc__body">Your records are confidential and handled under ethics- and privacy-guided practices. We never sell or share your data for marketing.</p></div>
+              </div>
+              <div class="acc__item reveal">
+                <h3 class="acc__h"><button class="acc__btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f8" aria-expanded="false" aria-controls="f8">How much does it cost?<i></i></button></h3>
+                <div id="f8" class="collapse" data-bs-parent="#faqAcc"><p class="acc__body">Fees depend on the programme and format. Our team shares them on your first call.</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CTA ================= -->
+    <section class="cta">
+      <div class="aurora" aria-hidden="true"><i class="a1"></i><i class="a2"></i><i class="a3"></i><i class="a4"></i></div>
+      <div class="cta__rings" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="wrap cta__inner">
+        <img class="cta__icon reveal" src="assets/img/logo/ayuva-icon-gold.png" alt="" width="72" height="72">
+        <h2 class="cta__title" data-split>Your healthspan begins with <span class="serif grad-gold">one measurement.</span></h2>
+        <div class="cta__actions reveal">
+          <a class="btn-x btn-gold btn-lg-x" href="/book" data-magnetic>Book your Key Longevity Panel <span class="ico"><i class="bi bi-arrow-up-right"></i></span></a>
+          <a class="btn-x btn-glass btn-lg-x" href="tel:+919643696969" data-magnetic>Call +91 96436 96969 <span class="ico"><i class="bi bi-telephone"></i></span></a>
+        </div>
+        <p class="cta__note reveal">Fees on enquiry — our team shares them after the first call.</p>
       </div>
     </section>
   </main>
 
-  <!-- ============ FOOTER ============ -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer__top">
-        <div class="footer__brand">
-          <a class="brand brand--footer" href="/" aria-label="AYUVA Longevity Institute — home">
-            <img class="brand__icon" src="assets/img/logo/ayuva-icon-gold.png" alt="" width="56" height="56">
-            <span class="brand__type">
-              <img class="brand__word" src="assets/img/logo/ayuva-wordmark-gold.png" alt="AYUVA" width="150" height="25">
-              <img class="brand__tag" src="assets/img/logo/ayuva-tagline-ivory.png" alt="Longevity Institute" width="150" height="7">
-            </span>
-          </a>
-          <p class="footer__motto">AYUVA Longevity Institute · <em>Live longer. Live younger.</em></p>
+  <!-- ================= FOOTER ================= -->
+  <footer class="foot" data-foot>
+    <div class="foot__glow" aria-hidden="true"></div>
+    <div class="foot__inner" data-foot-inner>
+      <div class="wrap">
+        <div class="foot__top">
+          <div class="foot__brand">
+            <a class="brand brand--light" href="/" aria-label="AYUVA Longevity Institute — home">
+              <img class="brand__icon" src="assets/img/logo/ayuva-icon-gold.png" alt="" width="54" height="54">
+              <span class="brand__type">
+                <img class="brand__word" src="assets/img/logo/ayuva-wordmark-green.png" alt="AYUVA" width="140" height="23">
+                <img class="brand__tag" src="assets/img/logo/ayuva-tagline-grey.png" alt="Longevity Institute" width="140" height="6">
+              </span>
+            </a>
+            <p class="foot__motto" data-foot-item>Live longer.<br><span class="serif grad-gold-ink">Live younger.</span></p>
+            <div class="foot__social" data-foot-item>
+              <a href="https://www.instagram.com/ayuvainstitute" target="_blank" rel="noopener" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+              <a href="https://wa.me/919643696969" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+              <a href="mailto:wellness@theayuva.com" aria-label="Email"><i class="bi bi-envelope"></i></a>
+            </div>
+          </div>
+
+          <nav class="foot__nav" aria-label="Footer">
+            <h2 class="foot__h">Explore</h2>
+            <a href="/about" data-foot-item><span>About</span><i class="bi bi-arrow-up-right"></i></a>
+            <a href="/the-ayuva-model" data-foot-item><span>The AYUVA Model</span><i class="bi bi-arrow-up-right"></i></a>
+            <a href="/key-longevity-panel" data-foot-item><span>Key Longevity Panel</span><i class="bi bi-arrow-up-right"></i></a>
+            <a href="/programmes" data-foot-item><span>Programmes</span><i class="bi bi-arrow-up-right"></i></a>
+            <a href="/therapies" data-foot-item><span>Therapies</span><i class="bi bi-arrow-up-right"></i></a>
+            <a href="/safety" data-foot-item><span>Safety</span><i class="bi bi-arrow-up-right"></i></a>
+            <a href="/team" data-foot-item><span>Team</span><i class="bi bi-arrow-up-right"></i></a>
+            <a href="/academy" data-foot-item><span>Academy</span><i class="bi bi-arrow-up-right"></i></a>
+            <a href="/faq" data-foot-item><span>FAQ</span><i class="bi bi-arrow-up-right"></i></a>
+            <a href="/book" data-foot-item><span>Book / Contact</span><i class="bi bi-arrow-up-right"></i></a>
+          </nav>
+
+          <div class="foot__card" data-foot-item>
+            <span class="foot__label">Speak to our team</span>
+            <a class="foot__phone" href="tel:+919643696969">+91 96436 96969</a>
+            <a class="foot__mail" href="mailto:wellness@theayuva.com">wellness@theayuva.com</a>
+            <p class="foot__loc"><i class="bi bi-geo-alt"></i> New Delhi</p>
+            <a class="btn-x btn-gold" href="/book" data-magnetic>Book your Key Panel <span class="ico"><i class="bi bi-arrow-up-right"></i></span></a>
+          </div>
         </div>
 
-        <nav class="footer__col" aria-label="Footer">
-          <h2 class="footer__h">Explore</h2>
-          <ul>
-            <li><a href="/programmes">Programmes</a></li>
-            <li><a href="/key-longevity-panel">Key Longevity Panel</a></li>
-            <li><a href="/therapies">Therapies</a></li>
-            <li><a href="/safety">Safety</a></li>
-            <li><a href="/team">Team</a></li>
-            <li><a href="/academy">Academy</a></li>
-            <li><a href="/faq">FAQ</a></li>
-          </ul>
-        </nav>
-
-        <div class="footer__col">
-          <h2 class="footer__h">Contact</h2>
-          <ul>
-            <li><a href="tel:+919643696969">+91 96436 96969</a></li>
-            <li><a href="mailto:wellness@theayuva.com">wellness@theayuva.com</a></li>
-            <li><a href="https://www.instagram.com/ayuvainstitute" rel="noopener" target="_blank">Instagram @ayuvainstitute</a></li>
-            <li>New Delhi</li>
-          </ul>
-        </div>
-
-        <div class="footer__col footer__col--cta">
-          <h2 class="footer__h">Begin here</h2>
-          <p>Your healthspan begins with one measurement.</p>
-          <a class="btn btn--gold btn--sm" href="/book">Book your Key Panel</a>
-        </div>
-      </div>
-
-      <p class="footer__disclaimer">AYUVA provides preventive and longevity health services under physician governance. Information on this website is educational and is not a substitute for advice from your own doctor. Results vary between individuals and no outcome is guaranteed. Some regenerative therapies are investigational and are offered only where clinically indicated, with informed consent. In an emergency, call 112 or go to the nearest hospital.</p>
-
-      <div class="footer__bottom">
-        <p>© <span data-year>2026</span> AYUVA Longevity Institute. All rights reserved.</p>
-        <ul>
-          <li><a href="/privacy">Privacy policy</a></li>
-          <li><a href="/terms">Terms</a></li>
+        <ul class="foot__tattva" aria-label="Pancha Tattva — the five elements">
+          <li data-foot-item><b class="serif">Prithvi</b><small>Earth</small></li>
+          <li data-foot-item><b class="serif">Jala</b><small>Water</small></li>
+          <li data-foot-item><b class="serif">Agni</b><small>Fire</small></li>
+          <li data-foot-item><b class="serif">Vayu</b><small>Air</small></li>
+          <li data-foot-item><b class="serif">Akasha</b><small>Space</small></li>
         </ul>
+
+        <p class="foot__disc">AYUVA provides preventive and longevity health services under physician governance. Information on this website is educational and is not a substitute for advice from your own doctor. Results vary between individuals and no outcome is guaranteed. Some regenerative therapies are investigational and are offered only where clinically indicated, with informed consent. In an emergency, call 112 or go to the nearest hospital.</p>
+
+        <div class="foot__bottom">
+          <span>© <span data-year>2026</span> AYUVA Longevity Institute. All rights reserved.</span>
+          <span class="foot__legal"><a href="/privacy">Privacy policy</a><a href="/terms">Terms</a></span>
+          <button class="totop" type="button" data-totop aria-label="Back to top">
+            <svg viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="28"/><circle class="p" cx="30" cy="30" r="28" data-totop-ring/></svg>
+            <i class="bi bi-arrow-up"></i>
+          </button>
+        </div>
       </div>
     </div>
   </footer>
 
-  <!-- Mobile: booking always within reach -->
-  <div class="dock" data-dock>
-    <a class="btn btn--gold" href="/book">Book your Key Panel</a>
-    <a class="dock__call" href="tel:+919643696969" aria-label="Call AYUVA on +91 96436 96969">
-      <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2a1 1 0 011-.25 11.4 11.4 0 003.6.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1z" fill="currentColor"/></svg>
-    </a>
+  <!-- Floating actions -->
+  <a class="wa-float" href="https://wa.me/919643696969" target="_blank" rel="noopener" aria-label="Chat with AYUVA on WhatsApp"><i class="bi bi-whatsapp"></i></a>
+  <div class="dock d-sm-none" data-dock>
+    <a class="btn-x btn-gold" href="/book">Book your Key Panel <span class="ico"><i class="bi bi-arrow-up-right"></i></span></a>
   </div>
 
-  <script src="assets/js/vendor/lenis.min.js" defer></script>
+  <script src="assets/vendor/bootstrap.bundle.min.js" defer></script>
+  <script src="assets/vendor/gsap.min.js" defer></script>
+  <script src="assets/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="assets/vendor/SplitText.min.js" defer></script>
+  <script src="assets/vendor/lenis.min.js" defer></script>
+  <script src="assets/vendor/swiper-bundle.min.js" defer></script>
   <script src="assets/js/main.js" defer></script>
 </body>
 </html>
