@@ -72,7 +72,9 @@
   /* ---------- Hero geometry ---------- */
   function heroR() {
     var w = window.innerWidth, h = window.innerHeight;
-    return w < 768 ? w * 0.36 : Math.min(w * 0.21, h * 0.25, 260);
+    if (w < 768) return h <= 700 ? Math.min(w * 0.34, h * 0.21) : w * 0.36;
+    if (w < 1200) return Math.min(w * 0.2, h * 0.22);
+    return Math.min(w * 0.21, h * 0.25, 260);
   }
   function coverR() { return Math.hypot(window.innerWidth, window.innerHeight) * 0.75; }
 
