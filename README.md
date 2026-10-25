@@ -17,7 +17,8 @@ Opening `index.html` straight from disk also works, but the nav links (`/about`,
 index.html                 Home (page 01 of the content document)
 assets/
   css/style.css            Design tokens + all styles
-  js/main.js               Header, menu, dropdown, reveals, count-up, parallax
+  js/main.js               Header, menu, dropdown, reveals, count-up, parallax, therapies rail
+  js/vendor/lenis.min.js   Smooth scrolling (Lenis 1.1.13, MIT)
   fonts/                   Lora + Inter (self-hosted, variable woff2)
   img/logo/                Logo layers cut from the master artwork (transparent PNG)
   img/photo/               Photography, WebP + JPEG at responsive sizes

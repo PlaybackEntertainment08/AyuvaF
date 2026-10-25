@@ -111,16 +111,17 @@
   /* ---------- Count-up numbers ---------- */
   function countUp(el) {
     var target = parseInt(el.getAttribute('data-count'), 10);
+    var suffix = el.getAttribute('data-suffix') || '';
     if (reduceMotion || !target) return;
     var dur = 1600;
     var t0 = performance.now();
     var step = function (now) {
       var p = Math.min(1, (now - t0) / dur);
       var eased = 1 - Math.pow(1 - p, 4);
-      el.textContent = String(Math.round(target * eased));
+      el.textContent = Math.round(target * eased) + suffix;
       if (p < 1) requestAnimationFrame(step);
     };
-    el.textContent = '0';
+    el.textContent = '0' + suffix;
     requestAnimationFrame(step);
   }
 
@@ -139,6 +140,74 @@
     revealTargets.forEach(function (el) { io.observe(el); });
   } else {
     revealTargets.forEach(function (el) { el.classList.add('is-in'); });
+  }
+
+  /* ---------- Therapies rail: buttons, drag, progress ---------- */
+  var rail = document.querySelector('[data-rail]');
+  if (rail) {
+    var prev = document.querySelector('[data-rail-prev]');
+    var next = document.querySelector('[data-rail-next]');
+    var bar = document.querySelector('[data-rail-bar]');
+    var cardStep = function () {
+      var card = rail.querySelector('.therapy');
+      return card ? card.getBoundingClientRect().width + 20 : 300;
+    };
+    var updateRail = function () {
+      var max = rail.scrollWidth - rail.clientWidth;
+      var p = max > 0 ? rail.scrollLeft / max : 1;
+      if (bar) bar.style.transform = 'scaleX(' + (0.15 + p * 0.85).toFixed(3) + ')';
+      if (prev) prev.disabled = rail.scrollLeft < 4;
+      if (next) next.disabled = rail.scrollLeft > max - 4;
+    };
+    if (prev) prev.addEventListener('click', function () { rail.scrollBy({ left: -cardStep(), behavior: 'smooth' }); });
+    if (next) next.addEventListener('click', function () { rail.scrollBy({ left: cardStep(), behavior: 'smooth' }); });
+    rail.addEventListener('scroll', updateRail, { passive: true });
+    window.addEventListener('resize', updateRail);
+    rail.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') { rail.scrollBy({ left: cardStep(), behavior: 'smooth' }); e.preventDefault(); }
+      if (e.key === 'ArrowLeft') { rail.scrollBy({ left: -cardStep(), behavior: 'smooth' }); e.preventDefault(); }
+    });
+
+    // mouse drag (touch already scrolls natively)
+    var dragX = 0, dragLeft = 0, dragging = false, moved = false;
+    rail.addEventListener('pointerdown', function (e) {
+      if (e.pointerType !== 'mouse' || e.button !== 0) return;
+      dragging = true; moved = false; dragX = e.clientX; dragLeft = rail.scrollLeft;
+    });
+    window.addEventListener('pointermove', function (e) {
+      if (!dragging) return;
+      var dx = e.clientX - dragX;
+      if (!moved && Math.abs(dx) > 4) { moved = true; rail.classList.add('is-dragging'); }
+      if (moved) rail.scrollLeft = dragLeft - dx;
+    });
+    window.addEventListener('pointerup', function () {
+      if (!dragging) return;
+      dragging = false;
+      if (moved) {
+        rail.classList.remove('is-dragging');
+        var s = cardStep();
+        rail.scrollTo({ left: Math.round(rail.scrollLeft / s) * s, behavior: 'smooth' });
+      }
+    });
+    updateRail();
+  }
+
+  /* ---------- Smooth scroll (Lenis), desktop pointers only ---------- */
+  if (window.Lenis && !reduceMotion && window.matchMedia('(pointer: fine)').matches) {
+    var lenis = new window.Lenis({ lerp: 0.09, wheelMultiplier: 0.95 });
+    var raf = function (t) { lenis.raf(t); requestAnimationFrame(raf); };
+    requestAnimationFrame(raf);
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest('a[href^="#"]');
+      if (!a || a.getAttribute('href').length < 2) return;
+      var target = document.querySelector(a.getAttribute('href'));
+      if (!target) return;
+      e.preventDefault();
+      lenis.scrollTo(target, { offset: -70, duration: 1.6 });
+    });
+    new MutationObserver(function () {
+      if (document.body.classList.contains('menu-open')) lenis.stop(); else lenis.start();
+    }).observe(document.body, { attributes: true, attributeFilter: ['class'] });
   }
 
   /* ---------- Footer year ---------- */
