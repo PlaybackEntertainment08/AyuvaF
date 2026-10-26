@@ -4,22 +4,46 @@ Static website for **www.theayuva.com**. Plain HTML, CSS and JavaScript: no fram
 
 ## Run locally
 
-```bash
-python -m http.server 8000
-# open http://localhost:8000
-```
+Double-click `index.html`. Every page is a flat file at the root with relative links, so the whole site works straight from disk, from GitHub Pages (including under a `/AyuvaF/` sub-path) and from any web host.
 
-Opening `index.html` straight from disk also works, but the nav links (`/about`, `/programmes`…) only resolve on a web server.
+## Pages (18)
+
+| File | Page |
+|---|---|
+| `index.html` | Home |
+| `about.html` | About AYUVA (mission, vision, values, founder’s message) |
+| `the-ayuva-model.html` | The AYUVA Model (five promises, Pancha Tattva, Ten Pillars) |
+| `key-longevity-panel.html` | Key Longevity Panel (eight domains, what you receive, add-ons, preparation) |
+| `programmes.html` | Programmes (finder, six pathways, coming soon, regenerative stack) |
+| `ceo-cellular-week.html` | CEO Cellular Week |
+| `meridian.html` | AYUVA Meridian |
+| `sushupti.html` | SUSHUPTI — Sleep Reset |
+| `ojas.html` | OJAS — Intimate Health |
+| `sovereign.html` | AYUVA Sovereign |
+| `therapies.html` | Therapies |
+| `safety.html` | Safety & Governance |
+| `team.html` | Team |
+| `academy.html` | Academy |
+| `faq.html` | FAQ |
+| `book.html` | Book / Contact |
+| `privacy.html` | Privacy policy — **draft**, not in the content document; needs legal review |
+| `terms.html` | Terms of use — **draft**, not in the content document; needs legal review |
+
+All copy comes from the website content document (v1, October 2026). Bracketed facts the client still has to supply (full address, opening hours, cancellation terms, doctors’ qualifications) are left out or marked.
+
+## Booking form
+
+`book.html` has no server behind it. On submit, the form opens WhatsApp (+91 96436 96969) with the request pre-filled, then shows the thank-you message; without JavaScript it falls back to a mailto to wellness@theayuva.com. `book.html?interest=ceo` (or `meridian`, `sushupti`, `ojas`, `sovereign`, `academy`, `waitlist`) pre-selects the programme. Swap the handler in `assets/js/main.js` (`bookForm`) for Formspree, a CRM endpoint or a backend when one exists.
 
 ## Structure
 
 ```
-index.html                    Home (v2, "Emerald Aurora")
+*.html                        18 pages, flat, relative links
 assets/
-  css/style.css               Design tokens, glass/aurora system, all components
-  js/main.js                  Loader, Lenis+GSAP sync, cursor, magnetic buttons, hero reel,
-                              scroll-scrubbed text, 183→30 matrix, domain tabs, stacking cards,
-                              programmes slider, Pancha Tattva orbit, team roster, chapter rail
+  css/style.css               Design tokens, glass/aurora system, all components (home + inner pages)
+  js/main.js                  Loader (home) / veil (inner pages), Lenis+GSAP sync, cursor, magnetic buttons,
+                              hero aperture, scroll-scrubbed text, 183→30 matrix, domain tabs, stacking cards,
+                              programmes slider, Pancha Tattva orbit, team roster, chapter rail, booking form
   vendor/                     Bootstrap 5.3.3, Bootstrap Icons 1.11.3, GSAP 3.13 (+ScrollTrigger,
                               SplitText), Lenis 1.1.13, Swiper 11.1.14 — all self-hosted
   fonts/                      Stack Sans Headline, Instrument Sans, Instrument Serif (woff2)
@@ -28,11 +52,11 @@ assets/
 ```
 
 Everything runs offline — no CDN calls. Motion is disabled automatically for visitors with
-"reduce motion" turned on, and the page stays fully usable without JavaScript.
+"reduce motion" turned on, and every page stays usable without JavaScript.
 
-## Pages still to build
-
-`/about`, `/the-ayuva-model`, `/key-longevity-panel`, `/programmes` (+5 programme pages), `/therapies`, `/safety`, `/team`, `/academy`, `/faq`, `/book`, `/privacy`, `/terms`. The homepage already links to these URLs.
+On touch devices the site switches to a lighter rendering mode: no smooth-scroll library, no custom
+cursor or particles, no backdrop blurs or blend modes, and a shorter pinned hero — so scrolling stays
+at a steady frame rate on mid-range phones. Everything else (layout, content, reveals) is identical.
 
 ## Image credits
 

@@ -41,13 +41,15 @@
 
   root.classList.add('anim');
   var gsap = window.gsap;
+  gsap.config({ nullTargetWarn: false });
   var ST = window.ScrollTrigger;
   gsap.registerPlugin(ST);
+  ST.config({ ignoreMobileResize: true });
   if (window.SplitText) gsap.registerPlugin(window.SplitText);
 
   /* ---------- Smooth scroll ---------- */
   var lenis = null;
-  if (window.Lenis) {
+  if (window.Lenis && finePointer) {
     lenis = new window.Lenis({ lerp: 0.085, wheelMultiplier: 0.95 });
     lenis.on('scroll', ST.update);
     gsap.ticker.add(function (t) { lenis.raf(t * 1000); });
@@ -78,8 +80,26 @@
   }
   function coverR() { return Math.hypot(window.innerWidth, window.innerHeight) * 0.75; }
 
-  /* ---------- Loader ---------- */
-  document.body.classList.add('is-loading');
+  var booted = false;
+  var isHome = !!stage;
+
+  /* Chrome (nav, dropdown, cursor, buttons) is live immediately, not after the intro */
+  nav(); mega(); cursor(); magnetic();
+
+  /* ---------- Inner pages: veil wipe + hero rise ---------- */
+  if (!isHome) {
+    var veil = $('[data-veil]');
+    gsap.set('[data-hero-fade]', { y: 26, opacity: 0 });
+    var itl = gsap.timeline({ defaults: { ease: 'expo.out' } });
+    if (veil) itl.to(veil, { clipPath: 'inset(0 0 100% 0)', duration: 1.05, ease: 'expo.inOut' }, 0).add(function () { veil.remove(); });
+    itl.to('[data-hero-fade]', { y: 0, opacity: 1, duration: 1.1, stagger: 0.09 }, 0.4)
+      .fromTo('[data-hero-media] img', { scale: 1.25, clipPath: 'inset(0 0 100% 0)' }, { scale: 1, clipPath: 'inset(0 0 0% 0)', duration: 1.5, ease: 'expo.inOut' }, 0.25)
+      .add(boot, 0.5);
+    setTimeout(function () { if (veil && document.body.contains(veil)) veil.remove(); boot(); }, 3500);
+  }
+
+  /* ---------- Loader (home) ---------- */
+  if (isHome) document.body.classList.add('is-loading');
   var seen = false;
   try { seen = sessionStorage.getItem('ayuva-seen') === '1'; } catch (e) {}
   var count = $('[data-loader-count]');
@@ -87,11 +107,10 @@
   var prog = { v: 0 };
   var loaded = document.readyState === 'complete';
   if (!loaded) window.addEventListener('load', function () { loaded = true; }, { once: true });
-  var booted = false;
 
-  prepareHero();
+  if (isHome) prepareHero();
 
-  gsap.to(prog, {
+  if (isHome) gsap.to(prog, {
     v: 100, duration: seen ? 0.8 : 1.7, ease: 'power2.inOut',
     onUpdate: function () { count.textContent = Math.round(prog.v); bar.style.transform = 'scaleX(' + prog.v / 100 + ')'; },
     onComplete: function () {
@@ -102,7 +121,7 @@
   });
 
   /* Failsafe: never hold a visitor behind the loader */
-  var failsafe = setTimeout(function () {
+  var failsafe = isHome && setTimeout(function () {
     if (booted) return;
     if (loader && document.body.contains(loader)) loader.remove();
     document.body.classList.remove('is-loading');
@@ -150,7 +169,7 @@
     if (booted) return;
     booted = true;
     if (lenis) lenis.start();
-    heroScroll();
+    if (isHome) heroScroll();
     initAll();
   }
 
@@ -165,7 +184,7 @@
     var tl = gsap.timeline({
       defaults: { ease: 'none' },
       scrollTrigger: {
-        trigger: stage, start: 'top top', end: '+=220%', pin: true, scrub: 0.8, invalidateOnRefresh: true,
+        trigger: stage, start: 'top top', end: finePointer ? '+=220%' : '+=150%', pin: true, scrub: finePointer ? 0.8 : 0.4, invalidateOnRefresh: true,
         onUpdate: function (self) {
           var n = Math.round(Math.min(1, self.progress / 0.4) * ticks.length);
           ticks.forEach(function (t, i) { t.classList.toggle('on', i < n); });
@@ -197,7 +216,7 @@
   /* Rising gold "cells" */
   function particles() {
     var canvas = $('[data-particles]');
-    if (!canvas || !canvas.getContext) return;
+    if (!canvas || !canvas.getContext || !finePointer) return;
     var ctx = canvas.getContext('2d');
     var dpr = Math.min(window.devicePixelRatio || 1, 2);
     var W, H, pts = [], running = true, raf;
@@ -239,10 +258,9 @@
 
   /* ---------- Everything else ---------- */
   function initAll() {
-    nav(); mega(); cursor(); magnetic();
     splitHeads(); reveals(); counters(); scrubText();
     about(); matrix(); numbers(); domains(); stackCards(); programmes();
-    spotlight(); tilt(); orbit(); roster(); rail(); ctaRings(); footer(); dock(); year();
+    spotlight(); tilt(); orbit(); roster(); rail(); ctaRings(); footer(); dock(); bookForm(); year();
     ST.refresh();
   }
 
@@ -533,7 +551,7 @@
   }
 
   function programmes() {
-    if (!window.Swiper) return;
+    if (!window.Swiper || !$('.prog-swiper')) return;
     var barI = $('[data-prog-progress] i');
     new window.Swiper('.prog-swiper', {
       slidesPerView: 'auto', spaceBetween: 18, speed: 900, grabCursor: true,
@@ -595,6 +613,7 @@
   }
 
   function ctaRings() {
+    if (!$('.cta')) return;
     gsap.from('.cta__rings i', { scale: 0.4, opacity: 0, duration: 2, stagger: 0.2, ease: 'expo.out', scrollTrigger: { trigger: '.cta', start: 'top 70%', once: true } });
     gsap.fromTo('.cta__icon', { rotate: -90 }, { rotate: 0, ease: 'none', scrollTrigger: { trigger: '.cta', start: 'top bottom', end: 'center center', scrub: true } });
   }
@@ -616,7 +635,8 @@
     var els = [$('[data-dock]'), $('.wa-float')].filter(Boolean);
     var afterHero = false, inFooter = false;
     function sync() { els.forEach(function (el) { el.classList.toggle('is-visible', afterHero && !inFooter); }); }
-    ST.create({ trigger: '#about', start: 'top 70%', onEnter: function () { afterHero = true; sync(); }, onLeaveBack: function () { afterHero = false; sync(); } });
+    var after = $('#about') || $('.phero + .sect') || $('main');
+    ST.create({ trigger: after, start: 'top 70%', onEnter: function () { afterHero = true; sync(); }, onLeaveBack: function () { afterHero = false; sync(); } });
     ST.create({ trigger: '[data-foot]', start: 'top 85%', onEnter: function () { inFooter = true; sync(); }, onLeaveBack: function () { inFooter = false; sync(); } });
   }
 
@@ -627,8 +647,7 @@
 
   /* ---------- Shared helpers ---------- */
   function buildDial() {
-    var g = document.querySelector('[data-dial-ticks]');
-    if (!g) return;
+    Array.prototype.forEach.call(document.querySelectorAll('[data-dial-ticks]'), function (g) {
     var html = '';
     for (var i = 0; i < 120; i++) {
       var a = i * 3 * Math.PI / 180, mj = i % 10 === 0;
@@ -636,10 +655,45 @@
       html += '<line' + (mj ? ' class="mj"' : '') + ' x1="' + (200 + r1 * Math.sin(a)).toFixed(2) + '" y1="' + (200 - r1 * Math.cos(a)).toFixed(2) + '" x2="' + (200 + r2 * Math.sin(a)).toFixed(2) + '" y2="' + (200 - r2 * Math.cos(a)).toFixed(2) + '"/>';
     }
     g.innerHTML = html;
+    });
+  }
+
+  /* Booking form: validates, opens WhatsApp with the request, shows the thank-you */
+  function bookForm() {
+    var form = document.querySelector('[data-form]');
+    if (!form) return;
+    var ok = document.querySelector('[data-form-ok]'), err = form.querySelector('[data-form-err]');
+    try {
+      var want = new URLSearchParams(location.search).get('interest');
+      if (want && form.interest.querySelector('option[value="' + want + '"]')) form.interest.value = want;
+    } catch (e) {}
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var bad = false;
+      Array.prototype.forEach.call(form.querySelectorAll('[required]'), function (el) {
+        var wrap = el.closest('.field, .check');
+        var valid = el.type === 'checkbox' ? el.checked : el.checkValidity();
+        if (wrap) wrap.classList.toggle('is-bad', !valid);
+        if (!valid) bad = true;
+      });
+      if (err) err.hidden = !bad;
+      if (bad) { var first = form.querySelector('.is-bad input, .is-bad select'); if (first) first.focus(); return; }
+      var f = form.elements;
+      var interest = f.interest.options[f.interest.selectedIndex].text;
+      var lines = ['Hello AYUVA, I would like to request an appointment.', '', 'Name: ' + f.name.value.trim(), 'Mobile: ' + f.mobile.value.trim(), 'Email: ' + f.email.value.trim()];
+      if (f.age.value) lines.push('Age: ' + f.age.value);
+      lines.push('Interested in: ' + interest);
+      if (f.date.value) lines.push('Preferred date: ' + f.date.value);
+      if (f.notes.value.trim()) lines.push('Notes: ' + f.notes.value.trim());
+      window.open('https://wa.me/919643696969?text=' + encodeURIComponent(lines.join('\n')), '_blank', 'noopener');
+      if (ok) { form.hidden = true; ok.hidden = false; if (window.gsap) window.gsap.from(ok, { y: 30, opacity: 0, duration: 1, ease: 'expo.out' }); }
+    });
   }
 
   /* ---------- Static fallback (no GSAP / reduced motion) ---------- */
   function startStatic() {
+    var v = document.querySelector('[data-veil]'); if (v) v.remove();
+    bookForm();
     var y = document.querySelector('[data-year]');
     if (y) y.textContent = new Date().getFullYear();
     var dots = document.querySelector('[data-matrix-dots]');
