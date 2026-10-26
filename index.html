@@ -135,6 +135,18 @@
     </div>
   </div>
 
+  <!-- Chapter rail (wide screens) -->
+  <nav class="rail" data-rail aria-label="Chapters">
+    <a href="#about"><i></i><span><b>01</b>About</span></a>
+    <a href="#standard"><i></i><span><b>02</b>The standard</span></a>
+    <a href="#how"><i></i><span><b>03</b>How it works</span></a>
+    <a href="#programmes"><i></i><span><b>04</b>Programmes</span></a>
+    <a href="#therapies"><i></i><span><b>05</b>Therapies</span></a>
+    <a href="#tattva"><i></i><span><b>06</b>Pancha Tattva</span></a>
+    <a href="#founder"><i></i><span><b>07</b>Founder &amp; team</span></a>
+    <a href="#faq"><i></i><span><b>08</b>FAQ</span></a>
+  </nav>
+
   <main id="main">
 
     <!-- ================= HERO — the aperture ================= -->
@@ -182,6 +194,8 @@
             <li><b data-count="90">90</b><span>day retest</span></li>
           </ul>
         </div>
+
+        <a class="hero__cue d-none d-xl-flex" href="#about" data-hero-fade><span>Scroll</span><i></i></a>
 
         <div class="hero__story" data-story>
           <div class="wrap">
@@ -275,22 +289,10 @@
           </div>
         </div>
 
-        <div class="stats">
-          <div class="stat glass reveal-card">
-            <svg class="stat__ring" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="54"/><circle class="p" cx="60" cy="60" r="54"/></svg>
-            <b class="stat__n" data-count="30">30</b>
-            <p>key measures — 22 blood &amp; urine, 8 functional</p>
-          </div>
-          <div class="stat glass reveal-card">
-            <svg class="stat__ring" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="54"/><circle class="p" cx="60" cy="60" r="54"/></svg>
-            <b class="stat__n" data-count="8">8</b>
-            <p>longevity domains, each with a clear action</p>
-          </div>
-          <div class="stat glass reveal-card">
-            <svg class="stat__ring" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="54"/><circle class="p" cx="60" cy="60" r="54"/></svg>
-            <b class="stat__n" data-count="90">90</b>
-            <p>days to retest — change is measured, not assumed</p>
-          </div>
+        <div class="numbers" data-numbers>
+          <div class="num"><i class="num__line"></i><b><span data-count="30">30</span></b><span class="num__l">key measures</span><p>22 blood &amp; urine markers in one draw, 8 functional measures in clinic.</p></div>
+          <div class="num"><i class="num__line"></i><b><span data-count="8">8</span></b><span class="num__l">longevity domains</span><p>Each read together, each with a clear next action.</p></div>
+          <div class="num"><i class="num__line"></i><b><span data-count="90">90</span></b><span class="num__l">days to retest</span><p>Change is measured against your own baseline, not assumed.</p></div>
         </div>
 
         <!-- Eight domains -->
@@ -326,7 +328,7 @@
     </section>
 
     <!-- ================= HOW IT WORKS (stacking cards) ================= -->
-    <section class="sect sect--light how">
+    <section class="sect sect--light how" id="how">
       <div class="mesh mesh--b" aria-hidden="true"></div>
       <div class="wrap">
         <div class="head head--center">
@@ -475,7 +477,7 @@
     </section>
 
     <!-- ================= REGENERATIVE STACK + SAFETY ================= -->
-    <section class="sect sect--light therapies">
+    <section class="sect sect--light therapies" id="therapies">
       <div class="mesh" aria-hidden="true"></div>
       <div class="wrap">
         <div class="head">
@@ -601,7 +603,7 @@
     </section>
 
     <!-- ================= FOUNDER + TEAM ================= -->
-    <section class="sect sect--light founder">
+    <section class="sect sect--light founder" id="founder">
       <div class="mesh mesh--b" aria-hidden="true"></div>
       <div class="wrap">
         <div class="row gy-5 gx-lg-5 align-items-center">
@@ -635,18 +637,38 @@
             </div>
             <a class="btn-x btn-dark reveal" href="/team" data-magnetic>Meet the team <span class="ico"><i class="bi bi-arrow-up-right"></i></span></a>
           </div>
-          <div class="team__row">
-            <article class="member reveal-card"><span class="member__av">GA</span><div><h3>Dr Garima Agarwal</h3><small>Chief Medical Advisor</small><p>Obstetrician &amp; Gynaecologist.</p></div></article>
-            <article class="member reveal-card"><span class="member__av">SB</span><div><h3>Dr Sandeep Bhasin, MS</h3><small>Surgeon</small><p>Surgeon and longevity medicine expert.</p></div></article>
-            <article class="member reveal-card"><span class="member__av">AB</span><div><h3>Dr Arpit Bansal</h3><small>Surgeon</small><p>Laparoscopic and cancer surgeon.</p></div></article>
-            <article class="member reveal-card"><span class="member__av">PD</span><div><h3>Dr Priyamvada Dua</h3><small>Integrative Psychotherapist</small><p>MSc Neuroscience, Imperial College London · PhD, Barts.</p></div></article>
+          <div class="roster" data-roster>
+            <div class="roster__list reveal">
+              <article class="roster__row is-active" tabindex="0" data-av="GA" data-name="Dr Garima Agarwal" data-role="Chief Medical Advisor" data-bio="Obstetrician &amp; Gynaecologist. Leads clinical governance across every AYUVA programme.">
+                <span class="roster__i">01</span><span class="roster__name">Dr Garima Agarwal</span><span class="roster__role">Chief Medical Advisor</span>
+                <p class="roster__bio">Obstetrician &amp; Gynaecologist.</p>
+              </article>
+              <article class="roster__row" tabindex="0" data-av="SB" data-name="Dr Sandeep Bhasin, MS" data-role="Surgeon" data-bio="Surgeon and longevity medicine expert.">
+                <span class="roster__i">02</span><span class="roster__name">Dr Sandeep Bhasin, MS</span><span class="roster__role">Surgeon</span>
+                <p class="roster__bio">Surgeon and longevity medicine expert.</p>
+              </article>
+              <article class="roster__row" tabindex="0" data-av="AB" data-name="Dr Arpit Bansal" data-role="Surgeon" data-bio="Laparoscopic and cancer surgeon.">
+                <span class="roster__i">03</span><span class="roster__name">Dr Arpit Bansal</span><span class="roster__role">Surgeon</span>
+                <p class="roster__bio">Laparoscopic and cancer surgeon.</p>
+              </article>
+              <article class="roster__row" tabindex="0" data-av="PD" data-name="Dr Priyamvada Dua" data-role="Integrative Psychotherapist" data-bio="MSc Neuroscience, Imperial College London · PhD, Barts. Leads the SUSHUPTI Sleep Reset Programme.">
+                <span class="roster__i">04</span><span class="roster__name">Dr Priyamvada Dua</span><span class="roster__role">Integrative Psychotherapist</span>
+                <p class="roster__bio">MSc Neuroscience, Imperial College London · PhD, Barts.</p>
+              </article>
+            </div>
+            <aside class="roster__card reveal-card" data-roster-card aria-live="polite">
+              <span class="roster__av" data-roster-av>GA</span>
+              <b data-roster-name>Dr Garima Agarwal</b>
+              <small data-roster-role>Chief Medical Advisor</small>
+              <p data-roster-bio>Obstetrician &amp; Gynaecologist. Leads clinical governance across every AYUVA programme.</p>
+            </aside>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ================= FAQ ================= -->
-    <section class="sect sect--dark faq">
+    <section class="sect sect--dark faq" id="faq">
       <div class="wrap">
         <div class="row gy-5 gx-lg-5">
           <div class="col-lg-5">

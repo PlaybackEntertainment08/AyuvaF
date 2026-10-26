@@ -19,7 +19,7 @@ assets/
   css/style.css               Design tokens, glass/aurora system, all components
   js/main.js                  Loader, Lenis+GSAP sync, cursor, magnetic buttons, hero reel,
                               scroll-scrubbed text, 183→30 matrix, domain tabs, stacking cards,
-                              programmes slider, Pancha Tattva orbit
+                              programmes slider, Pancha Tattva orbit, team roster, chapter rail
   vendor/                     Bootstrap 5.3.3, Bootstrap Icons 1.11.3, GSAP 3.13 (+ScrollTrigger,
                               SplitText), Lenis 1.1.13, Swiper 11.1.14 — all self-hosted
   fonts/                      Stack Sans Headline, Instrument Sans, Instrument Serif (woff2)

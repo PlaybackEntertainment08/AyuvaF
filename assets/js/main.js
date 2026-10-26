@@ -179,6 +179,7 @@
       .to('.hero__l--2', { xPercent: 70, opacity: 0, duration: 0.7, ease: 'power2.in' }, 0)
       .to('.hero__top', { y: -50, opacity: 0, duration: 0.45 }, 0)
       .to('.hero__bottom', { y: 60, opacity: 0, duration: 0.45 }, 0)
+      .to('.hero__cue', { opacity: 0, duration: 0.3 }, 0)
       .to('[data-particles]', { opacity: 0.35, duration: 0.6 }, 0.3)
       .to(story, { autoAlpha: 1, duration: 0.3 }, 0.9)
       .from('[data-story-eyebrow]', { y: 30, opacity: 0, duration: 0.3 }, 0.95)
@@ -240,8 +241,8 @@
   function initAll() {
     nav(); mega(); cursor(); magnetic();
     splitHeads(); reveals(); counters(); scrubText();
-    about(); matrix(); rings(); domains(); stackCards(); programmes();
-    spotlight(); tilt(); orbit(); ctaRings(); footer(); dock(); year();
+    about(); matrix(); numbers(); domains(); stackCards(); programmes();
+    spotlight(); tilt(); orbit(); roster(); rail(); ctaRings(); footer(); dock(); year();
     ST.refresh();
   }
 
@@ -435,10 +436,58 @@
     ST.create({ trigger: box, start: 'top 75%', once: true, onEnter: function () { tl.play(); } });
   }
 
-  function rings() {
-    $$('.stat__ring .p').forEach(function (c) {
-      gsap.to(c, { strokeDashoffset: 0, duration: 2.2, ease: 'power3.inOut', scrollTrigger: { trigger: c.closest('.stat'), start: 'top 88%', once: true } });
+  function numbers() {
+    var box = $('[data-numbers]');
+    if (!box) return;
+    gsap.from($$('.num', box), { y: 40, opacity: 0, duration: 1.2, stagger: 0.12, ease: 'expo.out', scrollTrigger: { trigger: box, start: 'top 85%', once: true } });
+    gsap.to($$('.num__line', box), { scaleX: 1, duration: 1.6, stagger: 0.15, ease: 'expo.inOut', scrollTrigger: { trigger: box, start: 'top 80%', once: true } });
+  }
+
+  /* Team roster: hovering a row swaps the portrait card */
+  function roster() {
+    var r = $('[data-roster]');
+    if (!r) return;
+    var rows = $$('.roster__row', r), card = $('[data-roster-card]', r);
+    var av = $('[data-roster-av]', card), nm = $('[data-roster-name]', card), rl = $('[data-roster-role]', card), bio = $('[data-roster-bio]', card);
+    var cur = 0;
+    function set(i) {
+      if (i === cur) return;
+      cur = i;
+      rows.forEach(function (x, k) { x.classList.toggle('is-active', k === i); });
+      var d = rows[i].dataset;
+      gsap.timeline()
+        .to([av, nm, rl, bio], { opacity: 0, y: -8, duration: 0.2, stagger: 0.02, ease: 'power2.in' })
+        .add(function () { av.textContent = d.av; nm.textContent = d.name; rl.textContent = d.role; bio.textContent = d.bio; })
+        .to([av, nm, rl, bio], { opacity: 1, y: 0, duration: 0.7, stagger: 0.05, ease: 'expo.out' });
+    }
+    rows.forEach(function (row, i) {
+      row.addEventListener('mouseenter', function () { set(i); });
+      row.addEventListener('focusin', function () { set(i); });
+      row.addEventListener('click', function () { set(i); });
     });
+  }
+
+  /* Chapter rail: tracks the section in view, hidden over hero and footer */
+  function rail() {
+    var r = $('[data-rail]');
+    if (!r) return;
+    var links = $$('a', r), flash;
+    links.forEach(function (a, i) {
+      var sec = $(a.getAttribute('href'));
+      if (!sec) return;
+      ST.create({
+        trigger: sec, start: 'top 55%', end: 'bottom 55%',
+        onToggle: function (self) {
+          if (!self.isActive) return;
+          links.forEach(function (l, k) { l.classList.toggle('is-active', k === i); l.classList.remove('is-flash'); });
+          r.classList.toggle('on-light', sec.classList.contains('sect--light'));
+          a.classList.add('is-flash');
+          clearTimeout(flash);
+          flash = setTimeout(function () { a.classList.remove('is-flash'); }, 1600);
+        }
+      });
+    });
+    ST.create({ trigger: '#about', start: 'top 60%', endTrigger: '[data-foot]', end: 'top 70%', onToggle: function (self) { r.classList.toggle('is-on', self.isActive); } });
   }
 
   function domains() {
@@ -599,7 +648,7 @@
       var n = document.querySelector('[data-matrix-num]'); if (n) n.textContent = '30';
       var l = document.querySelector('[data-matrix-label]'); if (l) l.textContent = 'measures · signal';
     }
-    document.querySelectorAll('.stat__ring .p').forEach(function (c) { c.style.strokeDashoffset = 0; });
+    document.querySelectorAll('.num__line').forEach(function (c) { c.style.transform = 'none'; });
     if (window.Swiper) new window.Swiper('.prog-swiper', { slidesPerView: 'auto', spaceBetween: 18, navigation: { prevEl: '[data-prog-prev]', nextEl: '[data-prog-next]' } });
     document.querySelectorAll('[data-d]').forEach(function (t) {
       t.addEventListener('click', function () {
