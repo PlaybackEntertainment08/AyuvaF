@@ -645,7 +645,7 @@
     var media = $('[data-hero-media]');
     if (!media) return;
     var img = $('img', media), badge = $('.phero__badge', media);
-    if (img && finePointer) gsap.to(img, { yPercent: 10, ease: 'none', scrollTrigger: { trigger: media, start: 'top bottom', end: 'bottom top', scrub: true } });
+    if (img && finePointer) gsap.fromTo(img, { yPercent: -5 }, { yPercent: 5, ease: 'none', scrollTrigger: { trigger: media, start: 'top bottom', end: 'bottom top', scrub: true } });
     if (badge) gsap.to(badge, { y: -8, duration: 3.2, ease: 'sine.inOut', yoyo: true, repeat: -1 });
   }
 

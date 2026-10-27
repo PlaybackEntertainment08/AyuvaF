@@ -1329,3 +1329,43 @@ ol.fives, ol.pillars, ol.apart, ol.finder, ol.dlist, ul.vals__grid { list-style:
   .tcard:not(.tcard--img) h3 { margin-top: 22px; }
   .tcard--img { min-height: 240px; }
 }
+
+/* Footer on phones: compact */
+@media (max-width: 767.98px) {
+  .foot__inner { padding: 56px 0 calc(16px + env(safe-area-inset-bottom)); }
+  .foot__top { gap: 36px; }
+  .foot__tattva { justify-content: flex-start; gap: 10px 22px; margin: 36px 0 22px; padding: 18px 0; }
+  .foot__tattva b { font-size: 1.25rem; }
+  .foot__disc { font-size: .75rem; line-height: 1.6; }
+  .foot__bottom { margin-top: 18px; padding-top: 16px; gap: 12px 20px; }
+  .foot__bottom > span:first-child { flex: 1 1 100%; }
+  .totop { width: 48px; height: 48px; margin-left: auto; }
+}
+@media (max-width: 575.98px) { .foot__bottom { padding-bottom: 0; } }
+
+/* Gate cards: icon tile, numeral, gold rule, real check marks */
+.gate { position: relative; overflow: hidden; isolation: isolate; padding: 28px 26px 22px; border-radius: 24px; transition: transform .3s ease, box-shadow .3s ease; }
+.gate:hover { transform: translateY(-4px); }
+.gate__top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 22px; }
+.gate__icon { width: 52px; height: 52px; border-radius: 14px; display: grid; place-items: center; font-size: 1.3rem; color: var(--night); background: var(--grad-gold-btn); box-shadow: 0 4px 12px rgba(16, 60, 45, .18); }
+.gate__n { font-family: var(--font-serif); font-style: italic; font-size: 1.25rem; color: var(--gold-l); }
+.gate h4 { font-size: 1.35rem; letter-spacing: -.03em; margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1px solid var(--line-dark); position: relative; }
+.gate h4::after { content: ""; position: absolute; left: 0; bottom: -1px; width: 44px; height: 2px; background: var(--grad-gold); }
+.gate li { border-top: 0; padding: 10px 0 10px 34px; }
+.gate li::before { width: 22px; height: 22px; margin-top: -11px; background-color: rgba(201, 162, 75, .14); }
+.safety__gates--light .gate { background: #FDFCF8; border: 1px solid rgba(0, 0, 0, .06); box-shadow: 0 1px 2px rgba(0, 0, 0, .04), 0 8px 24px rgba(0, 0, 0, .05); }
+.safety__gates--light .gate:hover { box-shadow: 0 2px 4px rgba(0, 0, 0, .04), 0 16px 32px rgba(0, 0, 0, .09); }
+.safety__gates--light .gate__icon { color: var(--gold-l); background: var(--grad-emerald); }
+.safety__gates--light .gate__n { color: var(--gold-text); }
+.safety__gates--light .gate h4 { color: var(--green); border-color: var(--line-light); }
+.safety__gates--light .gate li { color: #4A5550; }
+.safety__gates--light .gate li::before { background-color: rgba(14, 59, 46, .08); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M6 10.4l2.6 2.6L14 7.6' fill='none' stroke='%231E6B52' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
+.safety--light .gate__icon { color: var(--night); background: var(--grad-gold-btn); }
+
+/* Page-hero photo: oversized so the scroll drift never exposes the frame */
+.phero__media img { height: 120%; margin-top: -10%; }
+
+/* Gate numerals count within their own group */
+.safety__gates { counter-reset: gate; }
+.gate { counter-increment: gate; }
+.gate__n::before { content: "0" counter(gate); }
