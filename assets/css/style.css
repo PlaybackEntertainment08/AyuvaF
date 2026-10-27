@@ -1272,3 +1272,60 @@ ol.fives, ol.pillars, ol.apart, ol.finder, ol.dlist, ul.vals__grid { list-style:
 @media (min-width: 992px) { .pillars, .vals__grid { grid-template-columns: repeat(3, 1fr); } }
 @media (min-width: 1280px) { .fives, .pillars, .vals__grid { grid-template-columns: repeat(5, 1fr); } }
 @media (max-width: 1279.98px) { .fcard { padding: 28px; } }
+
+/* ==========================================================================
+   v3.6 — mobile hero, flat sections lifted
+   ========================================================================== */
+.fees { display: flex; align-items: flex-start; gap: 8px; max-width: 30rem; }
+.fees i { margin-top: 3px; }
+.phero__actions { align-items: flex-start; }
+@media (max-width: 991.98px) {
+  .pdial { opacity: .14; right: -55%; bottom: auto; top: -10%; width: 150vw; }
+  .phero__title { max-width: none; }
+  .phero__media { aspect-ratio: 4 / 3; border-radius: 24px; margin-top: 8px; }
+  .phero__badge { left: 12px; right: 12px; bottom: 12px; padding: 10px 12px; }
+  .phero__badge-ic { width: 38px; height: 38px; border-radius: 11px; }
+  .phero__badge b { font-size: .9375rem; }
+}
+@media (max-width: 575.98px) {
+  .phero__actions { flex-direction: column; align-items: stretch; }
+  .fees { font-size: .8125rem; }
+  .crumbs { font-size: .75rem; margin-bottom: 22px; }
+}
+
+/* Looks grid: numeral tile */
+.looks li { gap: 14px; padding: 14px 16px; transition: transform .35s var(--ease), box-shadow .35s var(--ease), border-color .3s; }
+.looks li:hover { transform: translateY(-3px); border-color: rgba(201, 162, 75, .45); box-shadow: 0 16px 30px -22px rgba(13, 31, 23, .45); }
+.looks__n { width: 40px; height: 40px; flex-shrink: 0; border-radius: 12px; display: grid; place-items: center; font-family: var(--font-serif); font-style: italic; font-size: 1rem; color: var(--gold-l); background: var(--grad-emerald); box-shadow: 0 4px 12px rgba(16, 60, 45, .18); }
+.looks li b { font-weight: 600; letter-spacing: -.02em; }
+
+/* Formats: gold glow corner */
+.fmt { overflow: hidden; }
+.fmt__glow { position: absolute; z-index: -1; right: -70px; top: -70px; width: 220px; height: 220px; border-radius: 50%; background: radial-gradient(circle, rgba(201, 162, 75, .22), transparent 65%); transition: transform .6s var(--ease); }
+.fmt:hover .fmt__glow { transform: scale(1.4); }
+.fmt { isolation: isolate; }
+
+/* Add-ons: numbered, richer */
+.addons li { padding: 18px 20px; border-radius: 18px; background: linear-gradient(140deg, rgba(255, 255, 255, .07), rgba(255, 255, 255, .02)); }
+.addons i { width: 36px; height: 36px; flex-shrink: 0; border-radius: 11px; display: grid; place-items: center; font-size: 1rem; color: var(--night); background: var(--grad-gold-btn); }
+
+/* Checks list (SUSHUPTI): card-like rows */
+.checks-l li { padding: 14px 0 14px 36px; }
+.checks-l li::before { width: 24px; height: 24px; margin-top: -12px; background-color: rgba(14, 59, 46, .1); }
+
+/* Stack list (programmes): lift on hover */
+.stacklist li { transition: transform .35s var(--ease), border-color .3s; }
+.stacklist li:hover { transform: translateY(-3px); border-color: rgba(227, 194, 122, .4); }
+
+/* Finder rows on phones: stacked, roomier */
+@media (max-width: 767.98px) { .finder__row { padding: 16px 0; } .finder__to { font-size: 1.05rem; } }
+
+/* Phones: cards hug their content (no bottom-anchored body, no empty middle) */
+@media (max-width: 767.98px) {
+  .fcard { min-height: 0; }
+  .fcard__body { margin-top: 0; padding-top: 22px; }
+  .tcard:not(.tcard--img) { min-height: 0; }
+  .tcard:not(.tcard--img) .tcard__icon { margin-bottom: 0; }
+  .tcard:not(.tcard--img) h3 { margin-top: 22px; }
+  .tcard--img { min-height: 240px; }
+}

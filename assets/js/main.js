@@ -260,7 +260,7 @@
   function initAll() {
     splitHeads(); reveals(); counters(); scrubText();
     about(); matrix(); numbers(); domains(); stackCards(); programmes();
-    spotlight(); tilt(); orbit(); roster(); rail(); ctaRings(); footer(); dock(); bookForm(); year();
+    spotlight(); tilt(); orbit(); roster(); rail(); ctaRings(); footer(); dock(); bookForm(); pheroFx(); year();
     ST.refresh();
   }
 
@@ -638,6 +638,15 @@
     var after = $('#about') || $('.phero + .sect') || $('main');
     ST.create({ trigger: after, start: 'top 70%', onEnter: function () { afterHero = true; sync(); }, onLeaveBack: function () { afterHero = false; sync(); } });
     ST.create({ trigger: '[data-foot]', start: 'top 85%', onEnter: function () { inFooter = true; sync(); }, onLeaveBack: function () { inFooter = false; sync(); } });
+  }
+
+  /* Page hero: photo drifts on scroll, badge floats */
+  function pheroFx() {
+    var media = $('[data-hero-media]');
+    if (!media) return;
+    var img = $('img', media), badge = $('.phero__badge', media);
+    if (img && finePointer) gsap.to(img, { yPercent: 10, ease: 'none', scrollTrigger: { trigger: media, start: 'top bottom', end: 'bottom top', scrub: true } });
+    if (badge) gsap.to(badge, { y: -8, duration: 3.2, ease: 'sine.inOut', yoyo: true, repeat: -1 });
   }
 
   function year() { var y = $('[data-year]'); if (y) y.textContent = new Date().getFullYear(); }

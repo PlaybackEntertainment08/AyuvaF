@@ -51,6 +51,8 @@ assets/
   img/photo/                  Photography (WebP + JPEG)
 ```
 
+Stylesheet and script links carry a version query (`style.css?v=…`) that changes on every build, so GitHub Pages’ 10-minute asset cache never serves old CSS with new HTML.
+
 Everything runs offline — no CDN calls. Motion is disabled automatically for visitors with
 "reduce motion" turned on, and every page stays usable without JavaScript.
 
